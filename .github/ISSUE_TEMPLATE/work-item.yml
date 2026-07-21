@@ -1,0 +1,64 @@
+name: Work item
+description: A single reviewable outcome
+title: "[MX-NN] "
+labels: ["type: feature"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: A concrete, reviewable result.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why the result is needed and how it fits the system.
+    validations:
+      required: true
+  - type: textarea
+    id: allowed-files
+    attributes:
+      label: Allowed files
+      description: Exactly which files or paths may change.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Issues that must be closed first.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: Objectively verifiable requirements as a checklist.
+    validations:
+      required: true
+  - type: textarea
+    id: validation-commands
+    attributes:
+      label: Validation commands
+    validations:
+      required: true
+  - type: textarea
+    id: required-evidence
+    attributes:
+      label: Required evidence
+    validations:
+      required: true
