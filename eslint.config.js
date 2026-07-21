@@ -1,5 +1,14 @@
 import js from "@eslint/js";
 
+const nodeGlobals = {
+  Buffer: "readonly",
+  URL: "readonly",
+  console: "readonly",
+  module: "writable",
+  process: "readonly",
+  require: "readonly",
+};
+
 export default [
   js.configs.recommended,
   {
@@ -7,12 +16,18 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      globals: {
-        Buffer: "readonly",
-        URL: "readonly",
-        console: "readonly",
-        process: "readonly",
-      },
+      globals: nodeGlobals,
+    },
+    rules: {
+      "no-console": ["error", { allow: ["error", "warn"] }],
+    },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "commonjs",
+      globals: nodeGlobals,
     },
     rules: {
       "no-console": ["error", { allow: ["error", "warn"] }],

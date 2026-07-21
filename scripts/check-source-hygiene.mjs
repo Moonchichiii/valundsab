@@ -36,7 +36,13 @@ const textExtensions = new Set([
   ".yml",
 ]);
 
-const skippedDirectories = new Set([".git", "node_modules"]);
+const skippedDirectories = new Set([
+  ".git",
+  ".lighthouseci",
+  "node_modules",
+  "playwright-report",
+  "test-results",
+]);
 
 const taskWords = ["TO" + "DO", "FIX" + "ME", "HA" + "CK", "TE" + "MP"];
 const taskPattern = new RegExp(

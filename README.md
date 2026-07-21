@@ -26,5 +26,8 @@ The site is served at `http://127.0.0.1:8000`.
 - [Contribution rules](CONTRIBUTING.md)
 - [Engineering standard](docs/ENGINEERING_STANDARD.md)
 - [Delivery workflow](docs/DELIVERY_WORKFLOW.md)
+- [Deployment model](docs/DEPLOYMENT.md)
 
 Quality gates run on every pull request; `main` is always deployable.
+Every pull request receives an isolated preview deployment; production
+deploys automatically from `main`.
