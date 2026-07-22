@@ -105,7 +105,9 @@ test.describe("production brand system", () => {
         layout.wordmarkHeight,
         `${width}px rendered height`,
       ).toBeGreaterThan(0);
-      expect(layout.naturalWidth, `${width}px natural width`).toBeGreaterThan(0);
+      expect(layout.naturalWidth, `${width}px natural width`).toBeGreaterThan(
+        0,
+      );
       expect(layout.naturalHeight, `${width}px natural height`).toBeGreaterThan(
         0,
       );
