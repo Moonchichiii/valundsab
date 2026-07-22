@@ -11,6 +11,13 @@ const nodeGlobals = {
   require: "readonly",
 };
 
+const browserGlobals = {
+  PerformanceObserver: "readonly",
+  document: "readonly",
+  getComputedStyle: "readonly",
+  window: "readonly",
+};
+
 export default [
   js.configs.recommended,
   {
@@ -22,6 +29,15 @@ export default [
     },
     rules: {
       "no-console": ["error", { allow: ["error", "warn"] }],
+    },
+  },
+  {
+    files: ["tests/**/*.js"],
+    languageOptions: {
+      globals: {
+        ...nodeGlobals,
+        ...browserGlobals,
+      },
     },
   },
   {

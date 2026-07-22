@@ -1,41 +1,30 @@
 import { expect, test } from "@playwright/test";
 
-const routes = [
-  "/",
-  "/portfolj/",
-  "/bolaget/",
-  "/engineering/",
-  "/kontakt/",
-];
+const routes = ["/", "/portfolj/", "/bolaget/", "/engineering/", "/kontakt/"];
 
 const compactWidths = [320, 360, 390, 430];
 
 test.describe("site navigation", () => {
   for (const route of routes) {
-    test(
-      `${route} exposes one working primary navigation`,
-      async ({ page }) => {
-        await page.goto(route);
+    test(`${route} exposes one working primary navigation`, async ({
+      page,
+    }) => {
+      await page.goto(route);
 
-        await expect(page.locator("nav")).toHaveCount(1);
-        await expect(
-          page.locator(".site-navigation__list > li"),
-        ).toHaveCount(4);
+      await expect(page.locator("nav")).toHaveCount(1);
+      await expect(page.locator(".site-navigation__list > li")).toHaveCount(4);
 
-        const destinations = await page
-          .locator(".site-navigation a")
-          .evaluateAll((links) =>
-            links.map((link) => link.getAttribute("href")),
-          );
+      const destinations = await page
+        .locator(".site-navigation a")
+        .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
 
-        expect(destinations).toEqual([
-          "/portfolj/",
-          "/bolaget/",
-          "/engineering/",
-          "/kontakt/",
-        ]);
-      },
-    );
+      expect(destinations).toEqual([
+        "/portfolj/",
+        "/bolaget/",
+        "/engineering/",
+        "/kontakt/",
+      ]);
+    });
   }
 
   test("compact navigation fits every measured width", async ({ page }) => {
@@ -86,14 +75,12 @@ test.describe("site navigation", () => {
       );
 
       for (const link of layout.links) {
-        expect(
-          link.width,
-          `${width}px target width`,
-        ).toBeGreaterThanOrEqual(44);
-        expect(
-          link.height,
-          `${width}px target height`,
-        ).toBeGreaterThanOrEqual(44);
+        expect(link.width, `${width}px target width`).toBeGreaterThanOrEqual(
+          44,
+        );
+        expect(link.height, `${width}px target height`).toBeGreaterThanOrEqual(
+          44,
+        );
         expect(link.left, `${width}px left boundary`).toBeGreaterThanOrEqual(0);
         expect(link.right, `${width}px right boundary`).toBeLessThanOrEqual(
           width,

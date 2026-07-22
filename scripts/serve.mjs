@@ -61,7 +61,10 @@ async function resolveFile(candidate) {
 }
 
 function respond(response, status, type, body) {
-  response.writeHead(status, { "content-type": type });
+  response.writeHead(status, {
+    "content-length": Buffer.byteLength(body),
+    "content-type": type,
+  });
   response.end(body);
 }
 

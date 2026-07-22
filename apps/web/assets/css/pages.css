@@ -8,8 +8,7 @@
   @media (width < 44rem) {
     .hero {
       min-block-size: calc(
-        100svh - var(--mobile-navigation-height) -
-          env(safe-area-inset-bottom)
+        100svh - var(--mobile-navigation-height) - env(safe-area-inset-bottom)
       );
     }
   }
