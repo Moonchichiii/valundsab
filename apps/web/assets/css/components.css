@@ -25,10 +25,16 @@
   }
 
   .site-brand {
-    font-size: 1.375rem;
-    font-weight: var(--weight-semibold);
-    letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
     text-decoration: none;
+  }
+
+  .site-brand__wordmark {
+    display: block;
+    inline-size: clamp(7.5rem, 14vw, 10.25rem);
+    block-size: auto;
   }
 
   .site-navigation__list {
@@ -71,6 +77,10 @@
   }
 
   @media (width < 44rem) {
+    .site-brand__wordmark {
+      inline-size: clamp(7.5rem, 34vw, 9rem);
+    }
+
     .site-navigation {
       position: fixed;
       inset-inline: 0;
