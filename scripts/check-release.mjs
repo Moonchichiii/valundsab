@@ -1,6 +1,14 @@
 import { gzipSync } from "node:zlib";
 import { readFileSync, readdirSync, statSync } from "node:fs";
-import { dirname, extname, join, relative, resolve } from "node:path";
+import {
+  dirname,
+  extname,
+  isAbsolute,
+  join,
+  relative,
+  resolve,
+  sep,
+} from "node:path";
 
 const root = resolve("apps/web");
 
@@ -68,12 +76,19 @@ function isNonFile(reference) {
 function resolveReference(fromFile, reference) {
   const withoutQuery = reference.split(/[?#]/)[0];
   const base = withoutQuery.startsWith("/")
-    ? join(root, withoutQuery)
+    ? join(root, withoutQuery.slice(1))
     : join(dirname(fromFile), withoutQuery);
   const target = resolve(base);
-  if (target !== root && !target.startsWith(root + "/")) {
+  const pathFromRoot = relative(root, target);
+  const escapesRoot =
+    pathFromRoot === ".." ||
+    pathFromRoot.startsWith(".." + sep) ||
+    isAbsolute(pathFromRoot);
+
+  if (escapesRoot) {
     return null;
   }
+
   try {
     const stats = statSync(target);
     if (stats.isDirectory()) {

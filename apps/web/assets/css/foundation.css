@@ -11,7 +11,6 @@
     U+2215, U+FEFF, U+FFFD;
 }
 
-
 /* Metrics measured in Chromium against Arial per issue M1-01 — body weight 400. */
 @font-face {
   font-family: "Schibsted Grotesk Fallback";
