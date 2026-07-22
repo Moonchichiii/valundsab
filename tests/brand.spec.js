@@ -34,14 +34,12 @@ test.describe("production brand system", () => {
       await expect(
         page.locator('link[rel="icon"][type="image/svg+xml"]'),
       ).toHaveAttribute("href", "/favicon.svg");
-      await expect(page.locator('link[rel="icon"][sizes="any"]')).toHaveAttribute(
-        "href",
-        "/favicon.ico",
-      );
-      await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
-        "href",
-        "/apple-touch-icon.png",
-      );
+      await expect(
+        page.locator('link[rel="icon"][sizes="any"]'),
+      ).toHaveAttribute("href", "/favicon.ico");
+      await expect(
+        page.locator('link[rel="apple-touch-icon"]'),
+      ).toHaveAttribute("href", "/apple-touch-icon.png");
       await expect(page.locator("body svg")).toHaveCount(0);
     });
   }
@@ -57,13 +55,15 @@ test.describe("production brand system", () => {
     }
   });
 
-  test("wordmark remains contained at every measured width", async ({ page }) => {
+  test("wordmark remains contained at every measured width", async ({
+    page,
+  }) => {
     for (const width of widths) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/");
-      await page.locator(".site-brand__wordmark").evaluate((image) =>
-        image.decode(),
-      );
+      await page
+        .locator(".site-brand__wordmark")
+        .evaluate((image) => image.decode());
 
       const layout = await page.evaluate(() => {
         const header = document.querySelector(".site-header");
@@ -90,18 +90,25 @@ test.describe("production brand system", () => {
       expect(layout.documentOverflow, `${width}px document overflow`).toBe(
         false,
       );
-      expect(layout.brandLeft, `${width}px left boundary`).toBeGreaterThanOrEqual(
+      expect(
+        layout.brandLeft,
+        `${width}px left boundary`,
+      ).toBeGreaterThanOrEqual(0);
+      expect(
+        layout.brandRight,
+        `${width}px right boundary`,
+      ).toBeLessThanOrEqual(width);
+      expect(layout.wordmarkWidth, `${width}px rendered width`).toBeGreaterThan(
         0,
       );
-      expect(layout.brandRight, `${width}px right boundary`).toBeLessThanOrEqual(
-        width,
-      );
-      expect(layout.wordmarkWidth, `${width}px rendered width`).toBeGreaterThan(0);
-      expect(layout.wordmarkHeight, `${width}px rendered height`).toBeGreaterThan(
-        0,
-      );
+      expect(
+        layout.wordmarkHeight,
+        `${width}px rendered height`,
+      ).toBeGreaterThan(0);
       expect(layout.naturalWidth, `${width}px natural width`).toBeGreaterThan(0);
-      expect(layout.naturalHeight, `${width}px natural height`).toBeGreaterThan(0);
+      expect(layout.naturalHeight, `${width}px natural height`).toBeGreaterThan(
+        0,
+      );
 
       if (width >= 704) {
         expect(layout.headerHeight, `${width}px header height`).toBe(72);
@@ -123,9 +130,9 @@ test.describe("production brand system", () => {
     });
 
     await page.goto("/");
-    await page.locator(".site-brand__wordmark").evaluate((image) =>
-      image.decode(),
-    );
+    await page
+      .locator(".site-brand__wordmark")
+      .evaluate((image) => image.decode());
 
     const layoutShift = await page.evaluate(() => window.__brandLayoutShift);
 
