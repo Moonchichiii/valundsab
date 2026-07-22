@@ -4,6 +4,8 @@ const nodeGlobals = {
   Buffer: "readonly",
   URL: "readonly",
   console: "readonly",
+  fetch: "readonly",
+  setTimeout: "readonly",
   module: "writable",
   process: "readonly",
   require: "readonly",

@@ -6,11 +6,9 @@ module.exports = {
   ci: {
     collect: {
       numberOfRuns: 3,
-      startServerCommand: "bun scripts/serve.mjs",
       url: ["http://127.0.0.1:8000/"],
       settings: {
-        chromeFlags:
-          "--headless=new --no-sandbox --user-data-dir=.lighthouseci/chrome-profile",
+        port: 9222,
       },
     },
     assert: {

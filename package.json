@@ -16,7 +16,7 @@
     "check": "bun run check:html && bun run check:css && bun run check:js && bun run check:format && bun run check:hygiene",
     "test": "playwright test",
     "check:release": "bun scripts/check-release.mjs",
-    "audit": "lhci autorun"
+    "audit": "bun scripts/run-audit.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
@@ -25,6 +25,7 @@
     "@playwright/test": "1.56.0",
     "eslint": "^10.7.0",
     "html-validate": "^11.5.6",
+    "playwright": "1.56.0",
     "prettier": "^3.9.6",
     "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0"
