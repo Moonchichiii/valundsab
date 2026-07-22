@@ -7,13 +7,58 @@
     <link rel="icon" href="data:image/svg+xml,">
     <meta
       name="description"
-      content="Valunds Digitala Tjänster utvecklar, äger och förvaltar digitala produkter med långsiktigt värde."
+      content="Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar, äger och förvaltar digitala produkter med långsiktigt värde."
     >
+    <link
+      rel="preload"
+      href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="/assets/css/app.css">
   </head>
   <body>
-    <main>
-      <h1>Valunds Digitala Tjänster</h1>
-      <p>Webbplatsen är under uppbyggnad.</p>
+    <a class="skip-link" href="#main">Till innehållet</a>
+
+    <header class="site-header">
+      <a class="site-brand" href="/" aria-label="Valunds startsida">Valunds</a>
+      <nav class="site-navigation" aria-label="Huvudnavigation">
+        <ul class="site-navigation__list">
+          <li><a href="/portfolj/">Portfölj</a></li>
+          <li><a href="/bolaget/">Bolaget</a></li>
+          <li><a href="/engineering/">Engineering</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero page-grid" aria-labelledby="hero-title">
+        <h1 class="hero__title display" id="hero-title">
+          <span>Vi bygger och driver</span>
+          <span>digitala produkter.</span>
+        </h1>
+        <p class="hero__lead lead pretty">
+          Valunds Digitala Tjänster utvecklar, äger och förvaltar digitala
+          produkter med långsiktigt värde.
+        </p>
+        <div class="hero__actions">
+          <a class="hero__action" data-variant="primary" href="/portfolj/"
+            >Utforska portföljen</a
+          >
+          <a class="hero__action" href="/bolaget/">Om bolaget</a>
+        </div>
+        <div class="hero__portfolio">
+          <p class="label">Portfölj</p>
+          <p class="meta">Valunds ServiceBok · SkogsKvitto</p>
+        </div>
+      </section>
+
+      <section class="products-intro page-grid" aria-labelledby="intro-title">
+        <p class="label">Portfölj</p>
+        <h2 id="intro-title">Digitala produkter vi äger och utvecklar.</h2>
+      </section>
     </main>
   </body>
 </html>

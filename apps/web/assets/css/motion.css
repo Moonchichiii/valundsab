@@ -1,0 +1,8 @@
+@layer enhancements {
+  @media (prefers-reduced-motion: no-preference) {
+    a {
+      transition: text-decoration-color var(--duration-micro)
+        var(--ease-standard);
+    }
+  }
+}

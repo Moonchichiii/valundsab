@@ -6,6 +6,13 @@ export default {
     "max-nesting-depth": 2,
     "custom-property-empty-line-before": null,
     "import-notation": "string",
+    "value-keyword-case": [
+      "lower",
+      {
+        camelCaseSvgKeywords: false,
+        ignoreProperties: ["/font/", "/^--font/"],
+      },
+    ],
     "selector-class-pattern": [
       "^[a-z]+(?:-[a-z]+)*(?:(?:__|--)[a-z]+(?:-[a-z]+)*)?$",
       {

@@ -1,0 +1,66 @@
+@layer layout {
+  .page-grid {
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(var(--gutter), 1fr)
+      [wide-start] minmax(
+        0,
+        calc((var(--width-wide) - var(--width-content)) / 2)
+      )
+      [content-start] min(var(--width-content), 100% - 2 * var(--gutter))
+      [content-end] minmax(
+        0,
+        calc((var(--width-wide) - var(--width-content)) / 2)
+      )
+      [wide-end] minmax(var(--gutter), 1fr)
+      [full-end];
+  }
+
+  .page-grid > * {
+    grid-column: content;
+  }
+
+  .page-grid > .wide {
+    grid-column: wide;
+  }
+
+  .page-grid > .full-bleed {
+    grid-column: full;
+  }
+
+  .page-grid > .text {
+    grid-column: content;
+    inline-size: min(100%, var(--measure-text));
+  }
+
+  .page-grid > .narrow {
+    grid-column: content;
+    inline-size: min(100%, var(--measure-narrow));
+  }
+
+  .stack > * + * {
+    margin-block-start: var(--space-m);
+  }
+
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s) var(--space-l);
+  }
+
+  .split {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  @media (width >= 44rem) {
+    .split {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .section {
+    padding-block: var(--space-section);
+  }
+}
