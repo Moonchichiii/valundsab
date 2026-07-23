@@ -30,11 +30,11 @@ Widths:
 - 1440px
 - 1920px
 
-| Engine | 320 | 390 | 768 | 1440 | 1920 | Result |
-|---|---|---|---|---|---|---|
-| Chromium | PASS | PASS | PASS | PASS | PASS | PASS |
-| Firefox | PASS | PASS | PASS | PASS | PASS | PASS |
-| WebKit | PASS | PASS | PASS | PASS | PASS | PASS |
+| Engine   | 320  | 390  | 768  | 1440 | 1920 | Result |
+| -------- | ---- | ---- | ---- | ---- | ---- | ------ |
+| Chromium | PASS | PASS | PASS | PASS | PASS | PASS   |
+| Firefox  | PASS | PASS | PASS | PASS | PASS | PASS   |
+| WebKit   | PASS | PASS | PASS | PASS | PASS | PASS   |
 
 Automated matrix:
 
@@ -63,13 +63,13 @@ committed.
 
 ## Manual browser verification
 
-| Browser | Method | Result |
-|---|---|---|
-| Chrome | Real Windows browser | PASS |
-| Firefox | Real Windows browser | PASS |
-| Edge | Real Windows browser | PASS |
-| Safari | Real iOS or macOS Safari | PASS |
-| Android Chrome-family | Real Android device | PASS |
+| Browser               | Method                   | Result |
+| --------------------- | ------------------------ | ------ |
+| Chrome                | Real Windows browser     | PASS   |
+| Firefox               | Real Windows browser     | PASS   |
+| Edge                  | Real Windows browser     | PASS   |
+| Safari                | Real iOS or macOS Safari | PASS   |
+| Android Chrome-family | Real Android device      | PASS   |
 
 Manual checks:
 
@@ -90,11 +90,11 @@ production defect.
 ## 200% zoom
 
 | Browser | Result |
-|---|---|
-| Chrome | PASS |
-| Firefox | PASS |
-| Edge | PASS |
-| Safari | PASS |
+| ------- | ------ |
+| Chrome  | PASS   |
+| Firefox | PASS   |
+| Edge    | PASS   |
+| Safari  | PASS   |
 
 At 200%:
 
