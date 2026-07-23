@@ -31,6 +31,7 @@ test.describe("site navigation", () => {
     for (const width of compactWidths) {
       await page.setViewportSize({ width, height: 800 });
       await page.goto("/");
+      await page.evaluate(() => document.fonts.ready);
 
       const layout = await page.evaluate(() => {
         const navigation = document.querySelector(".site-navigation");

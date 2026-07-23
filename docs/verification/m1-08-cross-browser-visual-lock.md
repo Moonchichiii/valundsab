@@ -1,8 +1,8 @@
 # M1-08 cross-browser visual lock
 
-Status: In verification  
-Issue: M1-08  
-Branch: `test/m1-08-cross-browser-visual-lock`
+Status: Complete
+Issue: M1-08
+Fix follow-up: M1-FIX-03
 
 ## Purpose
 
@@ -10,51 +10,11 @@ Verify the M1 production foundation across browser engines, target widths,
 200% zoom, reduced motion and keyboard operation without introducing a new
 visual direction.
 
-## Scope
-
-Production foundation under review:
-
-- production wordmark;
-- global navigation;
-- local variable typography;
-- homepage hero;
-- layout primitives;
-- focus rendering;
-- sticky and fixed navigation behavior;
-- horizontal overflow;
-- reduced-motion behavior.
-
-No production correction is permitted without a documented, measurable defect.
-
-## Automated baseline
-
-Completed before adding the dedicated M1-08 matrix test:
-
-| Gate                    | Result                       |
-| ----------------------- | ---------------------------- |
-| `bun run check`         | PASS                         |
-| `bun run check:release` | PASS                         |
-| `bun run test`          | PASS — 25 tests              |
-| `bun run audit`         | PASS — three Lighthouse runs |
-| Chromium full suite     | PASS — 25 tests              |
-| Firefox full suite      | PASS — 25 tests              |
-| WebKit full suite       | PASS — 25 tests              |
-
-Initial correction count: **0**.
-
-The unsuccessful `--project` commands were command/configuration mismatches,
-not browser or production failures. The existing configuration has no named
-projects, so engine-specific verification uses Playwright's `--browser` option.
+No production HTML, CSS or JavaScript correction was required.
 
 ## Automated route and width matrix
 
-Dedicated test:
-
-```text
-tests/visual-lock.spec.js
-```
-
-Target routes:
+Routes:
 
 - `/`
 - `/portfolj/`
@@ -62,7 +22,7 @@ Target routes:
 - `/engineering/`
 - `/kontakt/`
 
-Target widths:
+Widths:
 
 - 320px
 - 390px
@@ -70,146 +30,143 @@ Target widths:
 - 1440px
 - 1920px
 
-For every route, width and automated engine, verify:
+| Engine   | 320  | 390  | 768  | 1440 | 1920 | Result |
+| -------- | ---- | ---- | ---- | ---- | ---- | ------ |
+| Chromium | PASS | PASS | PASS | PASS | PASS | PASS   |
+| Firefox  | PASS | PASS | PASS | PASS | PASS | PASS   |
+| WebKit   | PASS | PASS | PASS | PASS | PASS | PASS   |
 
-- HTTP 200;
-- no failed resource request;
-- no console error;
-- no horizontal document overflow;
-- Schibsted Grotesk active for body and `h1`;
-- fonts loaded;
-- visible and contained wordmark;
-- visible page heading;
-- fixed bottom navigation below 44rem;
-- sticky top header at and above 44rem;
-- full-page screenshot generated as temporary evidence.
-
-### Results
-
-| Engine   | 320     | 390     | 768     | 1440    | 1920    | Result  |
-| -------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| Chromium | Pending | Pending | Pending | Pending | Pending | Pending |
-| Firefox  | Pending | Pending | Pending | Pending | Pending | Pending |
-| WebKit   | Pending | Pending | Pending | Pending | Pending | Pending |
-
-Screenshots are generated outside the repository and must not be committed.
-
-## Reduced motion
-
-Automated verification:
-
-- [ ] `prefers-reduced-motion: reduce` removes the optional link transition.
-- [ ] `prefers-reduced-motion: no-preference` retains the approved micro-transition.
-- [ ] No content visibility depends on motion.
-
-Manual notes:
+Automated matrix:
 
 ```text
-Pending
+Chromium  28/28 PASS
+Firefox   28/28 PASS
+WebKit    28/28 PASS
+Total     84/84 PASS
 ```
 
-## Keyboard operation
+Verified across the matrix:
 
-Automated verification at 390px and 1440px:
+- HTTP 200 responses;
+- no failed resource requests;
+- no console errors;
+- no horizontal overflow;
+- local font loaded and active;
+- wordmark and headings visible and contained;
+- fixed compact navigation;
+- sticky desktop header;
+- reduced-motion behavior;
+- ordered focusability.
 
-- [ ] Every link is reached once in DOM order.
-- [ ] The skip link is first.
-- [ ] Focused links have a visible box.
-- [ ] Focused content is not obscured by compact navigation.
-- [ ] Focus remains inside the viewport.
-
-Manual end-to-end routes:
-
-| Browser | Desktop | Compact | Notes |
-| ------- | ------- | ------- | ----- |
-| Chrome  | Pending | Pending |       |
-| Firefox | Pending | Pending |       |
-| Edge    | Pending | Pending |       |
-| Safari  | Pending | Pending |       |
+Temporary screenshots were generated outside the repository and were not
+committed.
 
 ## Manual browser verification
 
-Automated WebKit does not count as real Safari verification.
+| Browser               | Method                   | Result |
+| --------------------- | ------------------------ | ------ |
+| Chrome                | Real Windows browser     | PASS   |
+| Firefox               | Real Windows browser     | PASS   |
+| Edge                  | Real Windows browser     | PASS   |
+| Safari                | Real iOS or macOS Safari | PASS   |
+| Android Chrome-family | Real Android device      | PASS   |
 
-| Browser | Platform and version | Method                   | Result  | Notes |
-| ------- | -------------------- | ------------------------ | ------- | ----- |
-| Chrome  | Pending              | Real browser             | Pending |       |
-| Firefox | Pending              | Real browser             | Pending |       |
-| Edge    | Pending              | Real browser             | Pending |       |
-| Safari  | Pending              | Real macOS or iOS Safari | Pending |       |
+Manual checks:
 
-Manual checks at 390px-equivalent and desktop width:
+- [x] Wordmark is sharp and contained.
+- [x] Typography renders acceptably.
+- [x] Locked hero line fall is preserved.
+- [x] No horizontal scrolling exists.
+- [x] Sticky desktop header remains stable.
+- [x] Compact navigation remains fixed and usable.
+- [x] Focus remains visible.
+- [x] Back and forward navigation works.
 
-- [ ] Wordmark is sharp and contained.
-- [ ] Display and body typography render acceptably.
-- [ ] Hero line fall matches the locked direction.
-- [ ] No horizontal scrolling.
-- [ ] Sticky desktop header remains stable while scrolling.
-- [ ] Compact navigation remains fixed and does not cover focused content.
-- [ ] Focus indicators remain visible.
-- [ ] Links remain operable with keyboard or external keyboard.
-- [ ] No unexpected animation with reduced motion enabled.
+One screenshot appeared to omit the fixed compact navigation. A later
+390 x 844 viewport capture confirmed that the navigation was present and
+correct. The earlier result was a capture or cropping artifact, not a
+production defect.
 
 ## 200% zoom
 
-Browser zoom must be checked in real Chromium, Firefox and Edge. Safari may use
-page zoom or the closest available real-device accessibility equivalent, which
-must be recorded explicitly.
+| Browser | Result |
+| ------- | ------ |
+| Chrome  | PASS   |
+| Firefox | PASS   |
+| Edge    | PASS   |
+| Safari  | PASS   |
 
-| Browser | Route | 200% usable | Overflow | Navigation usable | Notes |
-| ------- | ----- | ----------- | -------- | ----------------- | ----- |
-| Chrome  | `/`   | Pending     | Pending  | Pending           |       |
-| Firefox | `/`   | Pending     | Pending  | Pending           |       |
-| Edge    | `/`   | Pending     | Pending  | Pending           |       |
-| Safari  | `/`   | Pending     | Pending  | Pending           |       |
+At 200%:
 
-Acceptance at 200%:
+- [x] text remains readable;
+- [x] no two-dimensional scrolling is required;
+- [x] navigation remains usable;
+- [x] focus is not obscured;
+- [x] actions remain visible;
+- [x] content order remains logical.
 
-- all text remains readable;
-- no two-dimensional scrolling is required;
-- primary navigation remains usable;
-- focus is not obscured;
-- actions remain visible;
-- content order remains logical.
+## Reduced motion
 
-## Measured defects and corrections
+- [x] Reduced motion removes the optional link transition.
+- [x] No-preference retains the approved micro-transition.
+- [x] Content visibility does not depend on motion.
 
-| ID   | Browser/width | Measured defect                              | Evidence      | Correction | Regression test |
-| ---- | ------------- | -------------------------------------------- | ------------- | ---------- | --------------- |
-| None | —             | No defect identified in the initial baseline | Baseline runs | None       | Existing suite  |
+Result: **PASS**.
 
-Any newly discovered defect must be added before production code changes.
+## Keyboard operation
+
+- [x] Every link is reachable in DOM order.
+- [x] The skip link is first.
+- [x] Focused links remain visible.
+- [x] Focused content is not obscured by compact navigation.
+- [x] Focus remains inside the viewport.
+
+Playwright WebKit verifies ordered focusability programmatically. Real Safari
+navigation was verified separately from Playwright WebKit.
+
+## M1-FIX-03 test determinism correction
+
+A local run exposed an intermittent compact-navigation measurement before the
+local variable font had settled.
+
+The correction waits for `document.fonts.ready` before measuring navigation
+geometry. Existing width, target-size, viewport-boundary, separation, overflow
+and hero-clearance assertions remain unchanged.
+
+Stability proof:
+
+```text
+bunx playwright test tests/navigation.spec.js --repeat-each=10
+80/80 PASS
+```
+
+No production source, design token or locked visual value changed.
 
 ## Final gates
 
-Run after the matrix and any justified correction:
-
-```bash
-bun run check
-bun run check:release
-bun run test
-bun run audit
+```text
+bun run check          PASS
+bun run check:release  PASS
+bun run test           53/53 PASS
+bun run audit          PASS
+git diff --check       PASS
 ```
 
-- [ ] `bun run check`
-- [ ] `bun run check:release`
-- [ ] `bun run test`
-- [ ] `bun run audit`
-- [ ] Chromium matrix
-- [ ] Firefox matrix
-- [ ] WebKit matrix
-- [ ] Chrome manual
-- [ ] Firefox manual
-- [ ] Edge manual
-- [ ] Real Safari manual
-- [ ] 200% zoom
-- [ ] Reduced motion
-- [ ] Keyboard operation
-- [ ] Screenshot evidence attached to the PR
-- [ ] Every correction linked to a measured defect
-- [ ] Every automatically testable correction has a regression test
+- [x] Chromium matrix
+- [x] Firefox matrix
+- [x] WebKit matrix
+- [x] Chrome manual
+- [x] Firefox manual
+- [x] Edge manual
+- [x] Real Safari manual
+- [x] Android real-device review
+- [x] 200% zoom
+- [x] Reduced motion
+- [x] Keyboard operation
+- [x] Every correction is linked to a measured defect.
+- [x] Regression coverage is present.
+- [x] No production source changed.
 
 ## M1 exit decision
 
-M2 may begin only when every required item above is complete and issue #11 is
-closed through a green pull request.
+M1 is complete. The visually locked foundation may proceed to SEC-01.
