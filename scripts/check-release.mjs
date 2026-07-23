@@ -28,6 +28,8 @@ const allowedExtensions = new Set([
   ".xml",
 ]);
 
+const allowedFiles = new Set(["_headers"]);
+
 const budgets = {
   javascriptGzip: 4096,
   cssGzip: 20480,
@@ -107,7 +109,7 @@ const htmlFiles = files.filter((file) => extname(file) === ".html");
 for (const file of files) {
   const relativePath = relative(root, file);
   const extension = extname(file) || file;
-  if (!allowedExtensions.has(extension)) {
+  if (!allowedExtensions.has(extension) && !allowedFiles.has(relativePath)) {
     report(relativePath + ": file type not allowed in the deployable tree");
   }
 }
