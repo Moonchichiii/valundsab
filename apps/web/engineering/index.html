@@ -7,7 +7,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="description" content="Engineering hos Valunds Digitala Tjänster.">
+    <meta name="description" content="Engineering hos Valunds — teknik som går att förstå och förvalta, med säkerhet, tillgänglighet och prestanda som grundkrav.">
     <link rel="stylesheet" href="/assets/css/app.css">
   </head>
   <body>
@@ -35,9 +35,74 @@
     </header>
 
     <main id="main">
-      <section class="section page-grid" aria-labelledby="page-title">
+
+      <section class="page-intro page-grid" aria-labelledby="page-title">
         <h1 id="page-title">Engineering</h1>
+        <p class="page-intro__lead lead">
+          Teknik som går att förstå och förvalta. Långsiktigt produktägande
+          ställer krav: tydliga system, begripliga val och kvalitet som
+          kontrolleras automatiskt — inte vid tillfälle.
+        </p>
+      </section>
+
+      <section class="page-section page-grid" aria-labelledby="product-title">
+        <p class="label page-section__label">Utgångspunkt</p>
+        <h2 id="product-title">Produktnära engineering.</h2>
+        <p class="page-section__lead">
+          Vår engineering finns till för produkterna, inte tvärtom. Vi väljer
+          lösningar efter vad en produkt behöver bära i drift under lång tid,
+          och vi undviker beroenden som gör morgondagens underhåll dyrare än
+          dagens utveckling.
+        </p>
+      </section>
+
+      <section class="page-section page-grid" aria-labelledby="security-title">
+        <p class="label page-section__label">Säkerhet</p>
+        <h2 id="security-title">Säkerhet och integritet.</h2>
+        <p class="page-section__lead">
+          Säkerhet är ett grundkrav i allt vi bygger: strikta
+          säkerhetsheaders, minimala angreppsytor och så lite datainsamling
+          som möjligt. Integritet är en designfråga — det som inte samlas in
+          behöver aldrig skyddas.
+        </p>
+      </section>
+
+      <section class="page-section page-grid" aria-labelledby="performance-title">
+        <p class="label page-section__label">Kvalitet</p>
+        <h2 id="performance-title">Prestanda och tillgänglighet.</h2>
+        <p class="page-section__lead">
+          Snabbt och tillgängligt är egenskaper vi bygger in, inte optimerar
+          fram. Vi utformar och testar våra produkter för tangentbord,
+          hjälpmedel, varierande uppkopplingar och olika skärmstorlekar.
+        </p>
+      </section>
+
+      <section class="page-section page-grid" aria-labelledby="operations-title">
+        <p class="label page-section__label">Förvaltning</p>
+        <h2 id="operations-title">Drift, testning och långsiktig förvaltning.</h2>
+        <p class="page-section__lead">
+          Varje förändring passerar automatiska kontroller innan den når
+          produktion: validering, tillgänglighetstester, prestandabudgetar
+          och säkerhetskontroller. Det som verifieras är det som publiceras.
+          Dokumentation och beslutshistorik gör att systemen går att förvalta
+          även om lång tid passerat.
+        </p>
       </section>
     </main>
+
+    <footer class="site-footer page-grid">
+      <div class="site-footer__inner">
+        <div class="site-footer__identity">
+          <p class="site-footer__name">Valunds Digitala Tjänster</p>
+          <p class="meta">© 2026 Valunds Digitala Tjänster</p>
+        </div>
+        <ul class="site-footer__links">
+          <li><a class="site-footer__link" href="/portfolj/">Portfölj</a></li>
+          <li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
+          <li><a class="site-footer__link" href="/engineering/">Engineering</a></li>
+          <li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
