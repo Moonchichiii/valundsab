@@ -13,10 +13,12 @@
     "check:js": "eslint .",
     "check:format": "prettier --check .",
     "check:hygiene": "bun scripts/check-source-hygiene.mjs",
-    "check": "bun run check:html && bun run check:css && bun run check:js && bun run check:format && bun run check:hygiene",
+    "check": "bun run check:html && bun run check:css && bun run check:js && bun run check:format && bun run check:hygiene && bun run check:security",
     "test": "playwright test",
     "check:release": "bun scripts/check-release.mjs",
-    "audit": "bun scripts/run-audit.mjs"
+    "audit": "bun scripts/run-audit.mjs",
+    "check:security": "bun scripts/check-security.mjs",
+    "test:security": "playwright test tests/security.spec.js"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
