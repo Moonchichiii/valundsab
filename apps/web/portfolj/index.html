@@ -7,7 +7,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="description" content="Portfölj hos Valunds Digitala Tjänster.">
+    <meta name="description" content="Portföljen hos Valunds Digitala Tjänster — de digitala produkter vi utvecklar, driver och förvaltar.">
     <link rel="stylesheet" href="/assets/css/app.css">
   </head>
   <body>
@@ -35,9 +35,92 @@
     </header>
 
     <main id="main">
-      <section class="section page-grid" aria-labelledby="page-title">
+
+      <section class="page-intro page-grid" aria-labelledby="page-title">
         <h1 id="page-title">Portfölj</h1>
+        <p class="page-intro__lead lead">
+          Valunds utvecklar och äger sina produkter. Här presenterar vi de
+          digitala produkter vi utvecklar, driver och förvaltar.
+        </p>
       </section>
+
+      <article class="product-case page-grid" aria-labelledby="servicebok-title">
+        <p class="label page-section__label">Produkt · Fordon</p>
+        <h2 id="servicebok-title">Valunds ServiceBok</h2>
+        <div class="product-case__body">
+          <h3>Problemet</h3>
+          <p>
+            Ett fordons historia sprids ut — servicekvitton i lådor,
+            anteckningar i olika format, dokumentation som försvinner vid
+            ägarbyte. Det gör underhåll svårare att planera och fordonets
+            värde svårare att visa.
+          </p>
+          <h3>Vad produkten gör</h3>
+          <p>
+            ServiceBok samlar servicehistorik, kvitton och dokumentation
+            digitalt. Viktig fordonsinformation blir samlad, strukturerad
+            och tillgänglig över tid.
+          </p>
+          <h3>Valunds ansvar</h3>
+          <p>
+            Vi utvecklar, driver och förvaltar ServiceBok långsiktigt, med
+            dataskydd och förvaltbarhet som designkrav från början.
+          </p>
+        </div>
+        <p class="product-case__action">
+          <a class="text-action" data-variant="primary" href="/kontakt/"
+            >Frågor om ServiceBok</a
+          >
+        </p>
+      </article>
+
+      <article
+        class="product-case page-grid"
+        data-variant="mirror"
+        aria-labelledby="skogskvitto-title"
+      >
+        <p class="label page-section__label">Produkt · Skogsbruk</p>
+        <h2 id="skogskvitto-title">SkogsKvitto</h2>
+        <div class="product-case__body">
+          <h3>Problemet</h3>
+          <p>
+            Skogsägarens ekonomiska underlag är fragmenterat: kvitton,
+            fakturor och dokument från olika håll, ofta hanterade för hand
+            långt i efterhand.
+          </p>
+          <h3>Vad produkten gör</h3>
+          <p>
+            SkogsKvitto hjälper till att samla kvitton och underlag och
+            strukturera ekonomisk information — mindre manuellt arbete,
+            bättre ordning, spårbarhet över tid.
+          </p>
+          <h3>Valunds ansvar</h3>
+          <p>
+            Vi utvecklar SkogsKvitto med långsiktig datakvalitet i fokus och
+            driver tjänsten som en del av vår egen portfölj.
+          </p>
+        </div>
+        <p class="product-case__action">
+          <a class="text-action" data-variant="primary" href="/kontakt/"
+            >Frågor om SkogsKvitto</a
+          >
+        </p>
+      </article>
     </main>
+
+    <footer class="site-footer page-grid">
+      <div class="site-footer__inner">
+        <div class="site-footer__identity">
+          <p class="site-footer__name">Valunds Digitala Tjänster</p>
+          <p class="meta">© 2026 Valunds Digitala Tjänster</p>
+        </div>
+        <ul class="site-footer__links">
+          <li><a class="site-footer__link" href="/portfolj/">Portfölj</a></li>
+          <li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
+          <li><a class="site-footer__link" href="/engineering/">Engineering</a></li>
+          <li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

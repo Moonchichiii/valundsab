@@ -5,21 +5,9 @@
     padding-block: var(--space-xl);
   }
 
-  @media (width < 44rem) {
-    .hero {
-      min-block-size: calc(
-        100svh - var(--mobile-navigation-height) - env(safe-area-inset-bottom)
-      );
-    }
-  }
-
   .hero__title > span {
     display: block;
     text-wrap: balance;
-  }
-
-  .hero__lead {
-    margin-block-start: var(--space-l);
   }
 
   .hero__actions {
@@ -27,17 +15,9 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-s);
-    margin-block-start: var(--space-l);
   }
 
-  @media (width >= 44rem) {
-    .hero__actions {
-      flex-direction: row;
-      gap: var(--space-l);
-    }
-  }
-
-  .hero__action {
+  :is(.hero__action, .text-action) {
     display: inline-block;
     padding-block: var(--space-xs);
     font-weight: var(--weight-semibold);
@@ -47,11 +27,11 @@
     text-underline-offset: 0.4em;
   }
 
-  .hero__action[data-variant="primary"] {
+  :is(.hero__action, .text-action)[data-variant="primary"] {
     text-decoration-color: var(--accent);
   }
 
-  .hero__action:hover {
+  :is(.hero__action, .text-action):hover {
     text-decoration-color: var(--accent-text);
   }
 
@@ -60,22 +40,132 @@
   }
 
   @media (width < 44rem) {
+    .hero {
+      min-block-size: calc(
+        100svh - var(--mobile-navigation-height) - env(safe-area-inset-bottom)
+      );
+    }
+
     .hero__portfolio {
       margin-block-start: var(--space-s);
     }
   }
 
-  .hero__portfolio p {
+  .page-intro {
+    padding-block: var(--space-xl) var(--space-l);
+  }
+
+  .page-intro__lead,
+  .page-section h2,
+  .page-section__lead {
+    margin-block-start: var(--space-m);
+  }
+
+  .hero__lead,
+  .hero__actions,
+  .page-section__actions,
+  .product-preview,
+  .principle-list,
+  .product-case__action {
+    margin-block-start: var(--space-l);
+  }
+
+  .page-section,
+  .product-preview,
+  .product-case,
+  .principle-list > li {
+    border-block-start: var(--line-width) solid var(--line-subtle);
+  }
+
+  .page-section__lead,
+  .product-preview__body,
+  .product-case__body,
+  .principle-list > li {
+    max-inline-size: var(--measure-text);
+  }
+
+  .page-section__label,
+  .product-preview__meta {
+    color: var(--text-secondary);
+  }
+
+  .page-section h2 {
+    max-inline-size: 22ch;
+  }
+
+  .product-preview {
+    padding-block: var(--space-l);
+  }
+
+  .product-preview__body p {
+    margin-block-start: var(--space-s);
+  }
+
+  .principle-list > li {
+    padding-block: var(--space-m);
+  }
+
+  .page-section,
+  .product-case {
+    padding-block: var(--space-section);
+  }
+
+  .product-case__body h3 {
+    margin-block-start: var(--space-l);
+    font-size: var(--text-body);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0;
+  }
+
+  .hero__portfolio p,
+  .product-preview__body h3,
+  .product-case__body p {
     margin-block-start: var(--space-2xs);
   }
 
-  .products-intro {
-    border-block-start: var(--line-width) solid var(--line-subtle);
-    padding-block: var(--space-xl) var(--space-section);
-  }
+  @media (width >= 44rem) {
+    .hero__actions {
+      flex-direction: row;
+      gap: var(--space-l);
+    }
 
-  .products-intro h2 {
-    margin-block-start: var(--space-m);
-    max-inline-size: 24ch;
+    .product-preview {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-l);
+    }
+
+    .product-preview[data-variant="mirror"] .product-preview__body {
+      grid-column: 2;
+    }
+
+    .product-case__body {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 0 var(--space-l);
+      max-inline-size: none;
+    }
+
+    .product-case__body h3 {
+      grid-column: 1;
+      max-inline-size: var(--measure-narrow);
+    }
+
+    .product-case__body p {
+      grid-column: 2;
+      max-inline-size: var(--measure-text);
+    }
+
+    .product-case[data-variant="mirror"] .product-case__body {
+      grid-auto-flow: dense;
+    }
+
+    .product-case[data-variant="mirror"] .product-case__body h3 {
+      grid-column: 2;
+    }
+
+    .product-case[data-variant="mirror"] .product-case__body p {
+      grid-column: 1;
+    }
   }
 }

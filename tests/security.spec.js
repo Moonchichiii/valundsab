@@ -118,6 +118,7 @@ test.describe("JavaScript-disabled operation", () => {
       await page.goto("/");
 
       await page
+        .getByRole("navigation", { name: "Huvudnavigation" })
         .getByRole("link", {
           name: destination.name,
           exact: true,
