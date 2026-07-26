@@ -1,12 +1,11 @@
 # M2-02 – Verifieringsrapport: sanningsenlig kak- och integritetshantering
 
-- **Bas:** M2-01-mergad main (arbetszip `Valunds-AB-20260724-1951.zip`;
-  containern saknar `.git`, start-SHA = ägarens main vid zip-tillfället).
-- **Branch (föreslagen):** `feat/m2-02-cookie-consent`
+- **Bas:** `origin/main` vid `7be64cf` (`[M2-01] Add production content and visual polish (#19)`).
+- **Branch:** `feat/m2-02-cookie-consent`.
+- **Implementationscommit:** `f8fdbd5` (`[M2-02] Implement truthful cookie and privacy handling`).
 - **Valt produktionsläge:** `necessary-only` (`optionalPurposes: []`).
-- consent-required är **fullt implementerat och fixture-testat**; fixturens
+- `consent-required` är fullt implementerat och fixture-testat; fixturens
   teständamål (`test-analys`) existerar endast i `tests/consent.spec.js`.
-
 ## Lokal förstapartsinventering (implementationsbas, ägarbeslut)
 
 | Mätpunkt        | Före     | Efter (produktion) |
@@ -79,38 +78,67 @@ consent-partial, body-end-`motion.css`, modulskript och footerlänkar) samt nya
   launchern) samt regressionsfallet där omfattande scroll före valet aldrig
   får förkollapsa launchern; kollapsbaslinjen nollställs vid state-byte.
 
-## Lighthouse (mobil, containermiljö)
 
-Kontrollprov ren main på samma maskin: **1472 / 1529 / 1553 ms** – basens
-sämsta körning ligger själv över 1550-gränsen, dvs. gränsen ligger inom
-miljöns brus.
+## Aktuell lokal verifiering – 2026-07-26
 
-Fullständig körhistorik för feature-trädet (bästa-av-3 per körning):
+Verifieringen kördes efter implementationscommit `f8fdbd5` på
+`feat/m2-02-cookie-consent`.
 
-| Körning | LCP run 1–3 (ms)   | Bästa | Anm.                                    |
-| ------- | ------------------ | ----- | --------------------------------------- |
-| a8      | (assertions gröna) | ≤1550 | Full `bun run audit`, 0 flaggor         |
-| a11     | 1756 / 1600 / 1630 | 1600  | Hög systemlast, 156 ms intern spridning |
-| a12     | 1597 / 1614 / 1618 | 1597  | Stabil maskin                           |
-| f1      | 1594 / 1670 / 1675 | 1594  | Slutkörning efter korrigeringspasset    |
+| Grind | Resultat |
+| --- | --- |
+| `bun run check` | PASS |
+| `bun run check:release` | PASS |
+| `bun run check:security` | PASS |
+| `bun run test` | 86/86 PASS |
+| `bun run test:security` | 16/16 PASS |
+| `bun run audit` | FAIL – LCP över låst gräns |
+| `git diff --check` | PASS efter korrigering av dokumentets radslut |
 
-Övriga assertions gröna i samtliga körningar: stylesheet 25 402 ≤ 25 600,
-script 2 318 B i separat Chromium-transfermätning efter slutfixen (budget
-4 096 B; full Lighthouse-omkörning sker på referensmaskinen). Uppmätt
-komponentkostnad i simulatorns throttling:
-~+100–130 ms (LCP-elementet är hero-rubrikens text; fasen är uteslutande
-Render Delay; Lighthouse-simuleringen räknar även body-end-CSS som
-render-blockerande, så splittens verkliga browservinst tillgodoräknas inte).
-Eftersom basens egen spridning (1472–1553) korsar gränsvärdet är containern
-inte en giltig domare för 1550-kontraktet: **sign-off-mätningen av
-LCP-assertionen ska utföras med `bun run audit` på ägarens
-referensmaskin** (M1-uppmätt LCP-klass ~600 ms, stor marginal), där även de
-tre runsen förväntas ligga samlat inom kontraktet.
+Den funktionella sviten omfattar de sju publika routsen, consent-flödena,
+necessary-only-läget, consent-required-fixturen, tillgänglighet,
+JavaScript-disabled-drift, CSP, säkerhetsheaders, responsivitet och
+skip-link-integritet.
 
-**Miljölärdom:** en kvarlämnad `serve.mjs` från kontrollprovsträdet höll
-port 8000 och gav falska testfel (ostylad launcher). Före varje test/audit:
-`pkill -f '[s]erve.mjs'` och portkontroll; endast projektets riktiga
-headerserver används.
+M2-02 är funktionellt och säkerhetsmässigt grönt men saknar slutlig
+prestandasignering. Branchen får därför inte mergas eller deployas innan
+Lighthouse passerar tre av tre körningar.
+
+## Lighthouse – aktuell lokal referensmätning
+
+En ren kontroll-worktree skapades från `origin/main` vid `7be64cf` på samma
+Windows-maskin som användes för M2-02.
+
+Kontrollträdet passerade:
+
+- `bun run check`
+- `bun run check:release`
+- `bun run check:security`
+- `bun run test` – 65/65
+- `bun run test:security` – 12/12
+- `bun run audit` – tre av tre körningar passerade
+- `git diff --check`
+
+De exakta numeriska LCP-värdena sparades inte från kontrollkörningen och
+uppfinns därför inte i rapporten.
+
+En tidigare röd M2-02-mätserie gav:
+
+- 1635 ms
+- 1592.056 ms
+- 1590.35 ms
+
+Den senaste rena M2-02-körningen gav:
+
+- 1575.086 ms
+- 1664.209 ms
+- 1589.432 ms
+
+Samtliga tre körningar överskred det låsta LCP-kravet på högst 1550 ms.
+`bun run audit` avslutades därför korrekt med statuskod 1.
+
+Ingen prestandabudget har höjts och ingen testgrind har försvagats.
+Lighthouse-resultaten finns lokalt i `.lighthouseci/` och versionshanteras
+inte.
 
 ## Mobil/tillgänglighet
 
