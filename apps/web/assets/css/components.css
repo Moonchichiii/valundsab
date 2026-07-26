@@ -179,4 +179,15 @@
     flex-wrap: wrap;
     gap: var(--space-2xs) var(--space-m);
   }
+
+  .cookie-launcher {
+    display: none;
+  }
+
+  .consent-plain {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+  }
 }

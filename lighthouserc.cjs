@@ -22,7 +22,7 @@ module.exports = {
         "resource-summary:script:size": ["error", { maxNumericValue: 4096 }],
         "resource-summary:stylesheet:size": [
           "error",
-          { maxNumericValue: 20480 },
+          { maxNumericValue: 25600 },
         ],
         "resource-summary:total:size": ["error", { maxNumericValue: 153600 }],
         "resource-summary:third-party:count": ["error", { maxNumericValue: 0 }],

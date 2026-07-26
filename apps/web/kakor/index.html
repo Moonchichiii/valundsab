@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfölj — Valunds Digitala Tjänster</title>
+    <title>Kakor – Valunds Digitala Tjänster</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="description" content="Portföljen hos Valunds Digitala Tjänster — de digitala produkter vi utvecklar, driver och förvaltar.">
+    <meta name="description" content="Hur Valunds webbplats hanterar kakor och lagring i webbläsaren.">
     <link rel="stylesheet" href="/assets/css/app.css">
   </head>
   <body>
@@ -26,7 +26,7 @@
       </a>
       <nav class="site-navigation" aria-label="Huvudnavigation">
         <ul class="site-navigation__list">
-          <li><a href="/portfolj/" aria-current="page">Portfölj</a></li>
+          <li><a href="/portfolj/">Portfölj</a></li>
           <li><a href="/bolaget/">Bolaget</a></li>
           <li><a href="/engineering/">Engineering</a></li>
           <li><a href="/kontakt/">Kontakt</a></li>
@@ -34,78 +34,43 @@
       </nav>
     </header>
 
-    <main id="main">
-
-      <section class="page-intro page-grid" aria-labelledby="page-title">
-        <h1 id="page-title">Portfölj</h1>
-        <p class="page-intro__lead lead">
-          Valunds utvecklar och äger sina produkter. Här presenterar vi de
-          digitala produkter vi utvecklar, driver och förvaltar.
+    <main class="page-shell" id="main">
+      <div class="page-intro">
+        <p class="label">Valunds Digitala Tjänster</p>
+        <h1>Kakor</h1>
+        <p class="page-intro__lead">Så hanterar webbplatsen kakor och lagring i din webbläsare.</p>
+      </div>
+      <section class="page-section">
+        <p class="label">Nuläge</p>
+        <h2>Inga valfria kakor</h2>
+        <p class="page-section__lead">
+          Webbplatsens egen kod använder för närvarande inga analys-,
+          marknadsförings- eller profileringskakor och skapar ingen lagring i
+          din webbläsare. Det bekräftas av den tekniska inventering som körs
+          mot webbplatsens källkod.
         </p>
       </section>
-
-      <article class="product-case page-grid" aria-labelledby="servicebok-title">
-        <p class="label page-section__label">Produkt · Fordon</p>
-        <h2 id="servicebok-title">Valunds ServiceBok</h2>
-        <div class="product-case__body">
-          <h3>Problemet</h3>
-          <p>
-            Ett fordons historia sprids ut — servicekvitton i lådor,
-            anteckningar i olika format, dokumentation som försvinner vid
-            ägarbyte. Det gör underhåll svårare att planera och fordonets
-            värde svårare att visa.
-          </p>
-          <h3>Vad produkten gör</h3>
-          <p>
-            ServiceBok samlar servicehistorik, kvitton och dokumentation
-            digitalt. Viktig fordonsinformation blir samlad, strukturerad
-            och tillgänglig över tid.
-          </p>
-          <h3>Valunds ansvar</h3>
-          <p>
-            Vi utvecklar, driver och förvaltar ServiceBok långsiktigt, med
-            dataskydd och förvaltbarhet som designkrav från början.
-          </p>
-        </div>
-        <p class="product-case__action">
-          <a class="text-action" data-variant="primary" href="/kontakt/"
-            >Frågor om ServiceBok</a
-          >
+      <section class="page-section">
+        <p class="label">Nödvändig teknik</p>
+        <h2>Drift och säkerhet</h2>
+        <p class="page-section__lead">
+          Nödvändig teknik kan användas av drift- och säkerhetsleverantören
+          för att leverera och skydda webbplatsen, till exempel skydd mot
+          automatiserade angrepp. Sådan teknik kräver inte samtycke men ska
+          redovisas här. En inventering av driftmiljön genomförs som
+          kompletterande verifiering.
         </p>
-      </article>
-
-      <article
-        class="product-case page-grid"
-        data-variant="mirror"
-        aria-labelledby="skogskvitto-title"
-      >
-        <p class="label page-section__label">Produkt · Skogsbruk</p>
-        <h2 id="skogskvitto-title">SkogsKvitto</h2>
-        <div class="product-case__body">
-          <h3>Problemet</h3>
-          <p>
-            Skogsägarens ekonomiska underlag är fragmenterat: kvitton,
-            fakturor och dokument från olika håll, ofta hanterade för hand
-            långt i efterhand.
-          </p>
-          <h3>Vad produkten gör</h3>
-          <p>
-            SkogsKvitto hjälper till att samla kvitton och underlag och
-            strukturera ekonomisk information — mindre manuellt arbete,
-            bättre ordning, spårbarhet över tid.
-          </p>
-          <h3>Valunds ansvar</h3>
-          <p>
-            Vi utvecklar SkogsKvitto med långsiktig datakvalitet i fokus och
-            driver tjänsten som en del av vår egen portfölj.
-          </p>
-        </div>
-        <p class="product-case__action">
-          <a class="text-action" data-variant="primary" href="/kontakt/"
-            >Frågor om SkogsKvitto</a
-          >
+      </section>
+      <section class="page-section">
+        <p class="label">Om något ändras</p>
+        <h2>Samtycke före valfria kakor</h2>
+        <p class="page-section__lead">
+          Om webbplatsen i framtiden inför valfria ändamål visas ett tydligt
+          val innan någon valfri lagring används. Att acceptera och att avvisa
+          är då lika enkelt, och ett gjort val kan alltid ändras eller
+          återkallas via kakinställningarna.
         </p>
-      </article>
+      </section>
     </main>
 
     <footer class="site-footer page-grid">

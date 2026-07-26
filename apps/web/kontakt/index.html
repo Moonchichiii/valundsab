@@ -75,8 +75,129 @@
           <li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
           <li><a class="site-footer__link" href="/engineering/">Engineering</a></li>
           <li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
+          <li><a class="site-footer__link" href="/kakor/">Kakor</a></li>
+          <li>
+            <a class="site-footer__link" href="/integritet/">Integritet</a>
+          </li>
         </ul>
       </div>
     </footer>
+
+    <div data-consent>
+      <section class="consent-banner" aria-labelledby="consent-title" hidden>
+        <div class="consent-banner__scroll">
+          <div class="consent-banner__header">
+            <span class="cookie-badge" aria-hidden="true">
+              <img src="/assets/brand/cookie.svg" alt="" width="84" height="84">
+              <span class="crumb" data-crumb="one"></span>
+              <span class="crumb" data-crumb="two"></span>
+              <span class="crumb" data-crumb="three"></span>
+              <span class="crumb" data-crumb="four"></span>
+            </span>
+            <h2 id="consent-title">Vi använder kakor</h2>
+          </div>
+          <p class="consent-copy">
+            Nödvändiga funktioner är alltid aktiva. Valfria ändamål används
+            först efter ditt godkännande.
+          </p>
+          <div class="consent-banner__choices">
+            <button
+              class="consent-action"
+              type="button"
+              data-consent-action="accept"
+            >
+              Acceptera alla
+            </button>
+            <button
+              class="consent-action"
+              type="button"
+              data-consent-action="reject"
+            >
+              Avvisa valfria
+            </button>
+          </div>
+          <div class="consent-banner__links">
+            <button
+              class="consent-plain text-action"
+              type="button"
+              popovertarget="cookie-settings"
+            >
+              Anpassa
+            </button>
+          </div>
+        </div>
+      </section>
+      <button
+        class="cookie-launcher"
+        type="button"
+        popovertarget="cookie-settings"
+        aria-expanded="false"
+      >
+        <span class="cookie-badge" aria-hidden="true">
+          <img src="/assets/brand/cookie.svg" alt="" width="84" height="84">
+          <span class="crumb" data-crumb="one"></span>
+          <span class="crumb" data-crumb="two"></span>
+          <span class="crumb" data-crumb="three"></span>
+        </span>
+        <span class="cookie-launcher__label">Kakinställningar</span>
+      </button>
+      <section
+        class="consent-settings"
+        id="cookie-settings"
+        popover
+        aria-labelledby="cookie-settings-title"
+      >
+        <header class="consent-settings__header">
+          <div>
+            <p class="label">Kakor</p>
+            <h2 id="cookie-settings-title">Om kakor på Valunds</h2>
+          </div>
+          <button
+            class="consent-plain text-action"
+            type="button"
+            popovertarget="cookie-settings"
+            popovertargetaction="hide"
+          >
+            Stäng
+          </button>
+        </header>
+        <p class="consent-copy">
+          Webbplatsens egen kod använder för närvarande inga analys-,
+          marknadsförings- eller profileringskakor. Nödvändig teknik kan
+          användas av drift- och säkerhetsleverantören för att leverera och
+          skydda webbplatsen.
+        </p>
+        <p class="consent-copy" data-consent-status></p>
+        <div class="consent-settings__category">
+          <div>
+            <h3>Nödvändiga</h3>
+            <span class="label">Alltid aktiva</span>
+            <p class="consent-copy">
+              Teknik som krävs för att leverera och skydda webbplatsen.
+            </p>
+          </div>
+        </div>
+        <ul class="page-grid-reset" data-consent-purposes></ul>
+        <footer class="consent-settings__footer">
+          <button
+            class="consent-action"
+            type="button"
+            data-consent-action="save"
+          >
+            Spara
+          </button>
+          <button
+            class="consent-plain text-action"
+            type="button"
+            data-consent-action="withdraw"
+            hidden
+          >
+            Återkalla samtycke
+          </button>
+        </footer>
+      </section>
+    </div>
+    <link rel="stylesheet" href="/assets/css/motion.css">
+    <script type="module" src="/assets/js/consent.js"></script>
   </body>
 </html>
