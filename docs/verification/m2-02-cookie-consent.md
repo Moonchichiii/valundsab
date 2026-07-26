@@ -81,8 +81,7 @@ consent-partial, body-end-`motion.css`, modulskript och footerlänkar) samt nya
 
 ## Aktuell lokal verifiering – 2026-07-26
 
-Verifieringen kördes efter implementationscommit `f8fdbd5` på
-`feat/m2-02-cookie-consent`.
+Verifieringen gäller M2-02 på `feat/m2-02-cookie-consent`.
 
 | Grind | Resultat |
 | --- | --- |
@@ -91,55 +90,58 @@ Verifieringen kördes efter implementationscommit `f8fdbd5` på
 | `bun run check:security` | PASS |
 | `bun run test` | 86/86 PASS |
 | `bun run test:security` | 16/16 PASS |
-| `bun run audit` | FAIL – LCP över låst gräns |
-| `git diff --check` | PASS efter korrigering av dokumentets radslut |
+| `git diff --check` | PASS |
+| `bun run audit` före prestandafix | FAIL – LCP över 1550 ms |
+| `bun run audit` efter prestandafix | 3/3 PASS |
 
 Den funktionella sviten omfattar de sju publika routsen, consent-flödena,
 necessary-only-läget, consent-required-fixturen, tillgänglighet,
 JavaScript-disabled-drift, CSP, säkerhetsheaders, responsivitet och
 skip-link-integritet.
 
-M2-02 är funktionellt och säkerhetsmässigt grönt men saknar slutlig
-prestandasignering. Branchen får därför inte mergas eller deployas innan
-Lighthouse passerar tre av tre körningar.
+Den slutliga prestandafixen preloadar `/assets/css/motion.css` på samtliga
+sju publika routes. Den faktiska stylesheet-länken ligger kvar oförändrad.
 
-## Lighthouse – aktuell lokal referensmätning
+Efter att prestandafixen lades till passerade Lighthouse tre av tre
+körningar utan höjd budget och utan försvagade assertions.
 
-En ren kontroll-worktree skapades från `origin/main` vid `7be64cf` på samma
-Windows-maskin som användes för M2-02.
+Den fullständiga grindkedjan ska köras en sista gång på den sparade
+prestandacommmitten före merge och produktion.
 
-Kontrollträdet passerade:
+## Lighthouse – lokal referensmätning
 
-- `bun run check`
-- `bun run check:release`
-- `bun run check:security`
-- `bun run test` – 65/65
-- `bun run test:security` – 12/12
-- `bun run audit` – tre av tre körningar passerade
-- `git diff --check`
+En ren kontroll-worktree från `origin/main` vid `7be64cf` passerade tidigare
+tre av tre Lighthouse-körningar på samma Windows-maskin.
 
-De exakta numeriska LCP-värdena sparades inte från kontrollkörningen och
-uppfinns därför inte i rapporten.
-
-En tidigare röd M2-02-mätserie gav:
+En röd M2-02-mätserie före prestandafixen gav:
 
 - 1635 ms
 - 1592.056 ms
 - 1590.35 ms
 
-Den senaste rena M2-02-körningen gav:
+En senare röd kontroll gav:
 
 - 1575.086 ms
 - 1664.209 ms
 - 1589.432 ms
 
-Samtliga tre körningar överskred det låsta LCP-kravet på högst 1550 ms.
-`bun run audit` avslutades därför korrekt med statuskod 1.
+Orsaken som identifierades var att `motion.css` laddades som stylesheet men
+inte preloadades. Preload lades därefter till på:
 
-Ingen prestandabudget har höjts och ingen testgrind har försvagats.
-Lighthouse-resultaten finns lokalt i `.lighthouseci/` och versionshanteras
-inte.
+- `/`
+- `/portfolj/`
+- `/bolaget/`
+- `/engineering/`
+- `/kontakt/`
+- `/kakor/`
+- `/integritet/`
 
+Efter ändringen passerade `bun run audit` samtliga tre körningar mot det
+låsta LCP-kravet på högst 1550 ms.
+
+Terminalutskriften visade inte de tre slutliga numeriska LCP-värdena och de
+uppfinns därför inte i dokumentationen. Lighthouse-rapporterna finns lokalt
+i `.lighthouseci/` och versionshanteras inte.
 ## Mobil/tillgänglighet
 
 Kollapsad launcher exakt 68×68 px (verifierat både i test och live-mätning),
