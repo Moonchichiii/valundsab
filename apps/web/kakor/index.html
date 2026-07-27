@@ -3,32 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Valunds Digitala Tjänster</title>
+    <title>Kakor – Valunds Digitala Tjänster</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta
-      name="description"
-      content="Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar, äger och förvaltar digitala produkter med långsiktigt värde."
-    >
-    <link
-      rel="preload"
-      href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-      fetchpriority="high"
-    >
-    <link rel="preload" href="/assets/css/reset.css" as="style">
-    <link rel="preload" href="/assets/css/foundation.css" as="style">
-    <link rel="preload" href="/assets/css/layout.css" as="style">
-    <link rel="preload" href="/assets/css/components.css" as="style">
-    <link rel="preload" href="/assets/css/pages.css" as="style">
-    <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/foundation.css">
-    <link rel="stylesheet" href="/assets/css/layout.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/pages.css">
+    <meta name="description" content="Hur Valunds webbplats hanterar kakor och lagring i webbläsaren.">
+    <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="preload" href="/assets/css/motion.css" as="style">
 </head>
   <body>
@@ -43,7 +23,6 @@
           height="50"
           alt="Valunds"
           decoding="async"
-          fetchpriority="low"
         >
       </a>
       <nav class="site-navigation" aria-label="Huvudnavigation">
@@ -56,119 +35,42 @@
       </nav>
     </header>
 
-    <main id="main">
-      <section class="hero page-grid" aria-labelledby="hero-title">
-        <h1 class="hero__title display" id="hero-title">
-          <span>Vi bygger och driver</span>
-          <span>digitala produkter.</span>
-        </h1>
-        <p class="hero__lead lead pretty">
-          Valunds Digitala Tjänster utvecklar, äger och förvaltar digitala
-          produkter med långsiktigt värde.
-        </p>
-        <div class="hero__actions">
-          <a class="hero__action" data-variant="primary" href="/portfolj/"
-            >Utforska portföljen</a
-          >
-          <a class="hero__action" href="/bolaget/">Om bolaget</a>
-        </div>
-        <div class="hero__portfolio">
-          <p class="label">Portfölj</p>
-          <p class="meta">Valunds ServiceBok · SkogsKvitto</p>
-        </div>
-      </section>
-
-
-      <section class="page-section page-grid" aria-labelledby="work-title">
-        <p class="label page-section__label">Så arbetar vi</p>
-        <h2 id="work-title">Vi utvecklar, äger och förvaltar.</h2>
+    <main class="page-shell" id="main">
+      <div class="page-intro">
+        <p class="label">Valunds Digitala Tjänster</p>
+        <h1>Kakor</h1>
+        <p class="page-intro__lead">Så hanterar webbplatsen kakor och lagring i din webbläsare.</p>
+      </div>
+      <section class="page-section">
+        <p class="label">Nuläge</p>
+        <h2>Inga valfria kakor</h2>
         <p class="page-section__lead">
-          Valunds bygger digitala produkter för att driva dem vidare — inte
-          för att lämna över dem. Samma bolag ansvarar för idé, utveckling,
-          drift och vidareutveckling. Det ger produkter som förbättras
-          metodiskt över tid och beslut som tål att granskas i efterhand.
+          Webbplatsens egen kod använder för närvarande inga analys-,
+          marknadsförings- eller profileringskakor och skapar ingen lagring i
+          din webbläsare. Det bekräftas av den tekniska inventering som körs
+          mot webbplatsens källkod.
         </p>
       </section>
-
-      <section class="page-section page-grid" aria-labelledby="portfolio-title">
-        <p class="label page-section__label">Portfölj</p>
-        <h2 id="portfolio-title">Produkter vi bygger vidare på.</h2>
-        <div class="product-preview">
-          <div class="product-preview__body">
-            <p class="label product-preview__meta">Produkt · Fordon</p>
-            <h3>Valunds ServiceBok</h3>
-            <p>
-              En digital servicebok för fordon. Servicehistorik, kvitton och
-              dokumentation samlade på ett ställe — strukturerat, tillgängligt
-              och byggt med långsiktig förvaltning och dataskydd i fokus.
-            </p>
-            <p>
-              <a class="text-action" data-variant="primary" href="/portfolj/"
-                >Läs mer om ServiceBok</a
-              >
-            </p>
-          </div>
-        </div>
-        <div class="product-preview" data-variant="mirror">
-          <div class="product-preview__body">
-            <p class="label product-preview__meta">Produkt · Skogsbruk</p>
-            <h3>SkogsKvitto</h3>
-            <p>
-              En digital tjänst för skogsägare och ekonomiskt underlag.
-              Kvitton och dokument samlas och struktureras så att mindre tid
-              går till manuellt arbete — med spårbarhet och långsiktig
-              datakvalitet som grund.
-            </p>
-            <p>
-              <a class="text-action" data-variant="primary" href="/portfolj/"
-                >Läs mer om SkogsKvitto</a
-              >
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-section page-grid" aria-labelledby="principles-title">
-        <p class="label page-section__label">Principer</p>
-        <h2 id="principles-title">Byggt för att hålla.</h2>
-        <ul class="principle-list">
-          <li>
-            <strong>Säkerhet som grundkrav.</strong> Inte ett tillval i
-            efterhand.
-          </li>
-          <li>
-            <strong>Integritet.</strong> Så lite data som möjligt, så tydligt
-            hanterad som möjligt.
-          </li>
-          <li>
-            <strong>Tillgänglighet.</strong> Produkterna ska fungera för
-            fler, inte färre.
-          </li>
-          <li>
-            <strong>Prestanda.</strong> Snabbt är en egenskap, inte en
-            optimering.
-          </li>
-          <li>
-            <strong>Begriplig teknik.</strong> Val som går att förklara går
-            att förvalta.
-          </li>
-        </ul>
-      </section>
-
-      <section class="page-section page-grid" aria-labelledby="next-title">
-        <p class="label page-section__label">Vidare</p>
-        <h2 id="next-title">Se vad vi bygger.</h2>
+      <section class="page-section">
+        <p class="label">Nödvändig teknik</p>
+        <h2>Drift och säkerhet</h2>
         <p class="page-section__lead">
-          Portföljen visar produkterna. Bolagssidan visar varför vi arbetar
-          så här.
+          Nödvändig teknik kan användas av drift- och säkerhetsleverantören
+          för att leverera och skydda webbplatsen, till exempel skydd mot
+          automatiserade angrepp. Sådan teknik kräver inte samtycke men ska
+          redovisas här. En inventering av driftmiljön genomförs som
+          kompletterande verifiering.
         </p>
-        <div class="cluster page-section__actions">
-          <a class="text-action" data-variant="primary" href="/portfolj/"
-            >Utforska portföljen</a
-          >
-          <a class="text-action" href="/bolaget/">Om bolaget</a>
-          <a class="text-action" href="/kontakt/">Kontakt</a>
-        </div>
+      </section>
+      <section class="page-section">
+        <p class="label">Om något ändras</p>
+        <h2>Samtycke före valfria kakor</h2>
+        <p class="page-section__lead">
+          Om webbplatsen i framtiden inför valfria ändamål visas ett tydligt
+          val innan någon valfri lagring används. Att acceptera och att avvisa
+          är då lika enkelt, och ett gjort val kan alltid ändras eller
+          återkallas via kakinställningarna.
+        </p>
       </section>
     </main>
 

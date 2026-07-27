@@ -32,11 +32,25 @@ export default [
     },
   },
   {
+    files: ["apps/web/**/*.js"],
+    languageOptions: {
+      globals: {
+        ...browserGlobals,
+        localStorage: "readonly",
+        requestAnimationFrame: "readonly",
+      },
+    },
+  },
+  {
     files: ["tests/**/*.js"],
     languageOptions: {
       globals: {
         ...nodeGlobals,
         ...browserGlobals,
+        localStorage: "readonly",
+        sessionStorage: "readonly",
+        HTMLElement: "readonly",
+        getComputedStyle: "readonly",
       },
     },
   },

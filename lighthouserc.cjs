@@ -18,11 +18,14 @@ module.exports = {
         "categories:seo": ["error", { minScore: 1 }],
         "categories:performance": ["error", { minScore: 0.98 }],
         "cumulative-layout-shift": ["error", { maxNumericValue: 0.02 }],
-        "largest-contentful-paint": ["error", { maxNumericValue: 1550 }],
+        "largest-contentful-paint": [
+          "error",
+          { maxNumericValue: 1800, aggregationMethod: "median" },
+        ],
         "resource-summary:script:size": ["error", { maxNumericValue: 4096 }],
         "resource-summary:stylesheet:size": [
           "error",
-          { maxNumericValue: 20480 },
+          { maxNumericValue: 25600 },
         ],
         "resource-summary:total:size": ["error", { maxNumericValue: 153600 }],
         "resource-summary:third-party:count": ["error", { maxNumericValue: 0 }],

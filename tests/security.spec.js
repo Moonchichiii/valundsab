@@ -2,7 +2,15 @@ import { expect, test } from "@playwright/test";
 
 const origin = "http://127.0.0.1:8000";
 
-const routes = ["/", "/portfolj/", "/bolaget/", "/engineering/", "/kontakt/"];
+const routes = [
+  "/",
+  "/portfolj/",
+  "/bolaget/",
+  "/engineering/",
+  "/kontakt/",
+  "/kakor/",
+  "/integritet/",
+];
 
 const expectedCsp =
   "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; script-src-elem 'self'; script-src-attr 'none'; style-src 'self'; style-src-elem 'self'; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'";
