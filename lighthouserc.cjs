@@ -23,6 +23,7 @@ module.exports = {
           { maxNumericValue: 1800, aggregationMethod: "median" },
         ],
         "resource-summary:script:size": ["error", { maxNumericValue: 4096 }],
+        "resource-summary:image:size": ["error", { maxNumericValue: 153600 }],
         "resource-summary:stylesheet:size": [
           "error",
           { maxNumericValue: 25600 },

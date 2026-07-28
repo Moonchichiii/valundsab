@@ -22,6 +22,8 @@ const allowedExtensions = new Set([
   ".mjs",
   ".png",
   ".svg",
+  ".avif",
+  ".webp",
   ".txt",
   ".webmanifest",
   ".woff2",

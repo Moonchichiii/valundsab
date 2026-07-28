@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrerad produktvy av Valunds ServiceBok</title>
+  <desc id="desc">Anonymiserad demovy med servicehistorik, dokument och planerad service.</desc>
+  <rect width="1280" height="800" rx="28" fill="#ebece8"/>
+  <rect x="32" y="32" width="1216" height="736" rx="22" fill="#fbfaf6" stroke="#10283d" stroke-opacity=".14"/>
+  <path d="M54 32h1172a22 22 0 0 1 22 22v58H32V54a22 22 0 0 1 22-22z" fill="#10283d"/>
+  <circle cx="72" cy="72" r="8" fill="#23849a"/><circle cx="98" cy="72" r="8" fill="#f5f4ef" opacity=".55"/>
+  <text x="132" y="81" fill="#f5f4ef" font-family="Arial,sans-serif" font-size="25" font-weight="700">Valunds ServiceBok</text>
+  <rect x="32" y="112" width="250" height="656" fill="#f5f4ef"/>
+  <text x="64" y="160" fill="#5b6a73" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">GARAGE</text>
+  <rect x="56" y="184" width="202" height="106" rx="14" fill="#fff" stroke="#23849a" stroke-width="2"/>
+  <rect x="76" y="207" width="58" height="42" rx="9" fill="#ebece8"/>
+  <path d="M84 238h42l-6-17H94z" fill="#23849a"/><circle cx="96" cy="249" r="5" fill="#10283d"/><circle cx="116" cy="249" r="5" fill="#10283d"/>
+  <text x="150" y="222" fill="#10283d" font-family="Arial,sans-serif" font-size="17" font-weight="700">Demo-fordon</text>
+  <text x="150" y="248" fill="#5b6a73" font-family="Arial,sans-serif" font-size="14">DEMO 01</text>
+  <text x="64" y="350" fill="#5b6a73" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">ÖVERSIKT</text>
+  <text x="64" y="395" fill="#10283d" font-family="Arial,sans-serif" font-size="17" font-weight="700">Servicehistorik</text>
+  <text x="64" y="438" fill="#5b6a73" font-family="Arial,sans-serif" font-size="16">Kvitton</text>
+  <text x="64" y="481" fill="#5b6a73" font-family="Arial,sans-serif" font-size="16">Dokument</text>
+  <text x="326" y="166" fill="#5b6a73" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">FORDON</text>
+  <text x="326" y="218" fill="#10283d" font-family="Arial,sans-serif" font-size="39" font-weight="700">Demo-fordon</text>
+  <text x="326" y="252" fill="#5b6a73" font-family="Arial,sans-serif" font-size="17">8 dokumenterade servicehändelser</text>
+  <rect x="326" y="294" width="390" height="144" rx="18" fill="#fff" stroke="#10283d" stroke-opacity=".12"/>
+  <text x="354" y="333" fill="#5b6a73" font-family="Arial,sans-serif" font-size="13" font-weight="700">STATUS</text>
+  <text x="354" y="377" fill="#10283d" font-family="Arial,sans-serif" font-size="25" font-weight="700">Dokumentation komplett</text>
+  <rect x="354" y="405" width="224" height="8" rx="4" fill="#ebece8"/><rect x="354" y="405" width="190" height="8" rx="4" fill="#23849a"/>
+  <rect x="742" y="294" width="470" height="144" rx="18" fill="#10283d"/>
+  <text x="772" y="333" fill="#a8b6be" font-family="Arial,sans-serif" font-size="13" font-weight="700">NÄSTA SERVICE</text>
+  <text x="772" y="377" fill="#f5f4ef" font-family="Arial,sans-serif" font-size="25" font-weight="700">Planerad om 1 240 km</text>
+  <text x="326" y="500" fill="#10283d" font-family="Arial,sans-serif" font-size="25" font-weight="700">Senaste händelser</text>
+  <line x1="348" y1="550" x2="348" y2="690" stroke="#23849a" stroke-width="3"/>
+  <circle cx="348" cy="558" r="10" fill="#23849a"/><circle cx="348" cy="628" r="10" fill="#fbfaf6" stroke="#23849a" stroke-width="3"/><circle cx="348" cy="694" r="10" fill="#fbfaf6" stroke="#23849a" stroke-width="3"/>
+  <text x="382" y="563" fill="#10283d" font-family="Arial,sans-serif" font-size="19" font-weight="700">Basservice och oljebyte</text>
+  <text x="382" y="633" fill="#10283d" font-family="Arial,sans-serif" font-size="19" font-weight="700">Bromskontroll</text>
+  <text x="382" y="699" fill="#10283d" font-family="Arial,sans-serif" font-size="19" font-weight="700">Däck och hjulinställning</text>
+  <rect x="920" y="494" width="292" height="230" rx="18" fill="#fff" stroke="#10283d" stroke-opacity=".12"/>
+  <text x="948" y="535" fill="#5b6a73" font-family="Arial,sans-serif" font-size="13" font-weight="700">DOKUMENT</text>
+  <rect x="948" y="565" width="78" height="104" rx="8" fill="#ebece8"/>
+  <path d="M969 590h36M969 608h36M969 626h28M969 644h32" stroke="#5b6a73" stroke-width="4" stroke-linecap="round"/>
+  <text x="1048" y="595" fill="#10283d" font-family="Arial,sans-serif" font-size="17" font-weight="700">Servicekvitto</text>
+  <text x="1048" y="624" fill="#5b6a73" font-family="Arial,sans-serif" font-size="14">Verifierat</text>
+  <text x="948" y="704" fill="#5b6a73" font-family="Arial,sans-serif" font-size="12">Anonymiserad demovy</text>
+</svg>
