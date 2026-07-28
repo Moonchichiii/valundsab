@@ -1,235 +1,286 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bolaget — Valunds Digitala Tjänster</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="description" content="Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar, äger och förvaltar digitala produkter med långsiktigt värde.">
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <link rel="preload" href="/assets/css/motion.css" as="style">
-</head>
-  <body>
-    <a class="skip-link" href="#main">Till innehållet</a>
-
-    <header class="site-header">
-      <a class="site-brand" href="/" aria-label="Valunds startsida">
-        <img
-          class="site-brand__wordmark"
-          src="/assets/brand/valunds-wordmark.svg"
-          width="207"
-          height="50"
-          alt="Valunds"
-          decoding="async"
-        >
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>
+   Bolaget — Valunds Digitala Tjänster
+  </title>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+  <link href="/favicon.ico" rel="icon" sizes="any">
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon">
+  <meta content="Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar, äger och förvaltar digitala produkter med långsiktigt värde." name="description">
+  <link as="style" href="/assets/css/app.css" rel="preload">
+  <link href="/assets/css/app.css" rel="stylesheet">
+ </head>
+ <body>
+  <a class="skip-link" href="#main">
+   Till innehållet
+  </a>
+  <header class="site-header">
+   <a aria-label="Valunds startsida" class="site-brand" href="/">
+    <img alt="Valunds" class="site-brand__wordmark" decoding="async" height="50" src="/assets/brand/valunds-wordmark.svg" width="207">
+   </a>
+   <nav aria-label="Huvudnavigation" class="site-navigation">
+    <ul class="site-navigation__list">
+     <li>
+      <a href="/portfolj/">
+       Portfölj
       </a>
-      <nav class="site-navigation" aria-label="Huvudnavigation">
-        <ul class="site-navigation__list">
-          <li><a href="/portfolj/">Portfölj</a></li>
-          <li><a href="/bolaget/" aria-current="page">Bolaget</a></li>
-          <li><a href="/engineering/">Engineering</a></li>
-          <li><a href="/kontakt/">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main id="main">
-
-      <section class="page-intro page-grid" aria-labelledby="page-title">
-        <h1 id="page-title">Bolaget</h1>
-        <p class="page-intro__lead lead">
-          Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar,
+     </li>
+     <li>
+      <a aria-current="page" href="/bolaget/">
+       Bolaget
+      </a>
+     </li>
+     <li>
+      <a href="/engineering/">
+       Engineering
+      </a>
+     </li>
+     <li>
+      <a href="/kontakt/">
+       Kontakt
+      </a>
+     </li>
+    </ul>
+   </nav>
+  </header>
+  <main id="main">
+   <section aria-labelledby="page-title" class="page-intro page-grid">
+    <h1 id="page-title">
+     Bolaget
+    </h1>
+    <p class="page-intro__lead lead">
+     Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar,
           äger och förvaltar digitala produkter med långsiktigt värde.
-        </p>
-      </section>
-
-      <section class="page-section page-grid" aria-labelledby="own-title">
-        <p class="label page-section__label">Varför</p>
-        <h2 id="own-title">Vi bygger för att driva vidare.</h2>
-        <p class="page-section__lead">
-          Många digitala produkter byggs för att levereras och lämnas. Vi gör
+    </p>
+   </section>
+   <section aria-labelledby="own-title" class="page-section page-grid page-section--centered">
+    <p class="label page-section__label">
+     Varför
+    </p>
+    <h2 id="own-title">
+     Vi bygger för att driva vidare.
+    </h2>
+    <p class="page-section__lead">
+     Många digitala produkter byggs för att levereras och lämnas. Vi gör
           tvärtom: vi bygger produkter vi själva ska driva. Det ändrar varje
           beslut — från teknikval till hur vi hanterar data — eftersom vi är
           kvar när besluten ska bära.
-        </p>
-      </section>
-
-      <section class="page-section page-grid" aria-labelledby="how-title">
-        <p class="label page-section__label">Arbetssätt</p>
-        <h2 id="how-title">Så arbetar bolaget.</h2>
-        <p class="page-section__lead">
-          Idé, utveckling, drift och vidareutveckling hänger ihop hos oss. En
+    </p>
+   </section>
+   <section aria-labelledby="how-title" class="page-section page-grid page-section--centered">
+    <p class="label page-section__label">
+     Arbetssätt
+    </p>
+    <h2 id="how-title">
+     Så arbetar bolaget.
+    </h2>
+    <p class="page-section__lead">
+     Idé, utveckling, drift och vidareutveckling hänger ihop hos oss. En
           produkt är inte klar när den lanseras; det är då förvaltningen
           börjar. Vi arbetar metodiskt, dokumenterar våra beslut och låter
           kvalitetskontroller göra jobbet som annars glöms bort.
-        </p>
-      </section>
-
-      <section class="page-section page-grid" aria-labelledby="principles-title">
-        <p class="label page-section__label">Principer</p>
-        <h2 id="principles-title">Principer för produktägande.</h2>
-        <ul class="principle-list">
-          <li><strong>Långsiktighet</strong> före kortsiktiga genvägar.</li>
-          <li>
-            <strong>Säkerhet och integritet</strong> som grundkrav, inte som
+    </p>
+   </section>
+   <section aria-labelledby="principles-title" class="page-section page-grid page-section--centered">
+    <p class="label page-section__label">
+     Principer
+    </p>
+    <h2 id="principles-title">
+     Principer för produktägande.
+    </h2>
+    <ul class="principle-list">
+     <li>
+      <strong>
+       Långsiktighet
+      </strong>
+      före kortsiktiga genvägar.
+     </li>
+     <li>
+      <strong>
+       Säkerhet och integritet
+      </strong>
+      som grundkrav, inte som
             funktioner.
-          </li>
-          <li>
-            <strong>Teknik som går att förklara</strong> — och därför går att
+     </li>
+     <li>
+      <strong>
+       Teknik som går att förklara
+      </strong>
+      — och därför går att
             förvalta.
-          </li>
-          <li><strong>Färre saker,</strong> bättre gjorda.</li>
-        </ul>
-      </section>
-
-      <section class="page-section page-grid" aria-labelledby="next-title">
-        <p class="label page-section__label">Vidare</p>
-        <h2 id="next-title">Se produkterna.</h2>
-        <div class="cluster page-section__actions">
-          <a class="text-action" data-variant="primary" href="/portfolj/"
-            >Utforska portföljen</a
-          >
-          <a class="text-action" href="/kontakt/">Kontakta oss</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer page-grid">
-      <div class="site-footer__inner">
-        <div class="site-footer__identity">
-          <p class="site-footer__name">Valunds Digitala Tjänster</p>
-          <p class="meta">© 2026 Valunds Digitala Tjänster</p>
-        </div>
-        <ul class="site-footer__links">
-          <li><a class="site-footer__link" href="/portfolj/">Portfölj</a></li>
-          <li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
-          <li><a class="site-footer__link" href="/engineering/">Engineering</a></li>
-          <li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
-          <li><a class="site-footer__link" href="/kakor/">Kakor</a></li>
-          <li>
-            <a class="site-footer__link" href="/integritet/">Integritet</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-
-    <div data-consent>
-      <section class="consent-banner" aria-labelledby="consent-title" hidden>
-        <div class="consent-banner__scroll">
-          <div class="consent-banner__header">
-            <span class="cookie-badge" aria-hidden="true">
-              <img src="/assets/brand/cookie.svg" alt="" width="84" height="84">
-              <span class="crumb" data-crumb="one"></span>
-              <span class="crumb" data-crumb="two"></span>
-              <span class="crumb" data-crumb="three"></span>
-              <span class="crumb" data-crumb="four"></span>
-            </span>
-            <h2 id="consent-title">Vi använder kakor</h2>
-          </div>
-          <p class="consent-copy">
-            Nödvändiga funktioner är alltid aktiva. Valfria ändamål används
+     </li>
+     <li>
+      <strong>
+       Färre saker,
+      </strong>
+      bättre gjorda.
+     </li>
+    </ul>
+   </section>
+   <section aria-labelledby="next-title" class="page-section page-grid page-section--centered">
+    <p class="label page-section__label">
+     Vidare
+    </p>
+    <h2 id="next-title">
+     Se produkterna.
+    </h2>
+    <div class="cluster page-section__actions">
+     <a class="text-action" data-variant="primary" href="/portfolj/">
+      Utforska portföljen
+     </a>
+     <a class="text-action" href="/kontakt/">
+      Kontakta oss
+     </a>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer page-grid">
+   <div class="site-footer__inner">
+    <div class="site-footer__identity">
+     <p class="site-footer__name">
+      Valunds Digitala Tjänster
+     </p>
+     <p class="meta">
+      © 2026 Valunds Digitala Tjänster
+     </p>
+    </div>
+    <ul class="site-footer__links">
+     <li>
+      <a class="site-footer__link" href="/portfolj/">
+       Portfölj
+      </a>
+     </li>
+     <li>
+      <a class="site-footer__link" href="/bolaget/">
+       Bolaget
+      </a>
+     </li>
+     <li>
+      <a class="site-footer__link" href="/engineering/">
+       Engineering
+      </a>
+     </li>
+     <li>
+      <a class="site-footer__link" href="/kontakt/">
+       Kontakt
+      </a>
+     </li>
+     <li class="site-footer__legal">
+      <a class="site-footer__link" href="/kakor/">
+       Kakor
+      </a>
+     </li>
+     <li class="site-footer__legal">
+      <a class="site-footer__link" href="/integritet/">
+       Integritet
+      </a>
+     </li>
+    </ul>
+   </div>
+  </footer>
+  <div data-consent="">
+   <section aria-labelledby="consent-title" class="consent-banner" hidden>
+    <div class="consent-banner__scroll">
+     <div class="consent-banner__header">
+      <span aria-hidden="true" class="cookie-badge">
+       <img alt="" height="84" src="/assets/brand/cookie.svg" width="84">
+       <span class="crumb" data-crumb="one">
+       </span>
+       <span class="crumb" data-crumb="two">
+       </span>
+       <span class="crumb" data-crumb="three">
+       </span>
+       <span class="crumb" data-crumb="four">
+       </span>
+      </span>
+      <h2 id="consent-title">
+       Vi använder kakor
+      </h2>
+     </div>
+     <p class="consent-copy">
+      Nödvändiga funktioner är alltid aktiva. Valfria ändamål används
             först efter ditt godkännande.
-          </p>
-          <div class="consent-banner__choices">
-            <button
-              class="consent-action"
-              type="button"
-              data-consent-action="accept"
-            >
-              Acceptera alla
-            </button>
-            <button
-              class="consent-action"
-              type="button"
-              data-consent-action="reject"
-            >
-              Avvisa valfria
-            </button>
-          </div>
-          <div class="consent-banner__links">
-            <button
-              class="consent-plain text-action"
-              type="button"
-              popovertarget="cookie-settings"
-            >
-              Anpassa
-            </button>
-          </div>
-        </div>
-      </section>
-      <button
-        class="cookie-launcher"
-        type="button"
-        popovertarget="cookie-settings"
-        aria-expanded="false"
-      >
-        <span class="cookie-badge" aria-hidden="true">
-          <img src="/assets/brand/cookie.svg" alt="" width="84" height="84">
-          <span class="crumb" data-crumb="one"></span>
-          <span class="crumb" data-crumb="two"></span>
-          <span class="crumb" data-crumb="three"></span>
-        </span>
-        <span class="cookie-launcher__label">Kakinställningar</span>
+     </p>
+     <div class="consent-banner__choices">
+      <button class="consent-action" data-consent-action="accept" type="button">
+       Acceptera alla
       </button>
-      <section
-        class="consent-settings"
-        id="cookie-settings"
-        popover
-        aria-labelledby="cookie-settings-title"
-      >
-        <header class="consent-settings__header">
-          <div>
-            <p class="label">Kakor</p>
-            <h2 id="cookie-settings-title">Om kakor på Valunds</h2>
-          </div>
-          <button
-            class="consent-plain text-action"
-            type="button"
-            popovertarget="cookie-settings"
-            popovertargetaction="hide"
-          >
-            Stäng
-          </button>
-        </header>
-        <p class="consent-copy">
-          Webbplatsens egen kod använder för närvarande inga analys-,
+      <button class="consent-action" data-consent-action="reject" type="button">
+       Avvisa valfria
+      </button>
+     </div>
+     <div class="consent-banner__links">
+      <button class="consent-plain text-action" popovertarget="cookie-settings" type="button">
+       Anpassa
+      </button>
+     </div>
+    </div>
+   </section>
+   <button aria-expanded="false" class="cookie-launcher" popovertarget="cookie-settings" type="button">
+    <span aria-hidden="true" class="cookie-badge">
+     <img alt="" height="84" src="/assets/brand/cookie.svg" width="84">
+     <span class="crumb" data-crumb="one">
+     </span>
+     <span class="crumb" data-crumb="two">
+     </span>
+     <span class="crumb" data-crumb="three">
+     </span>
+    </span>
+    <span class="cookie-launcher__label">
+     Kakinställningar
+    </span>
+   </button>
+   <section aria-labelledby="cookie-settings-title" class="consent-settings" id="cookie-settings" popover>
+    <header class="consent-settings__header">
+     <div>
+      <p class="label">
+       Kakor
+      </p>
+      <h2 id="cookie-settings-title">
+       Om kakor på Valunds
+      </h2>
+     </div>
+     <button class="consent-plain text-action" popovertarget="cookie-settings" popovertargetaction="hide" type="button">
+      Stäng
+     </button>
+    </header>
+    <p class="consent-copy">
+     Webbplatsens egen kod använder för närvarande inga analys-,
           marknadsförings- eller profileringskakor. Nödvändig teknik kan
           användas av drift- och säkerhetsleverantören för att leverera och
           skydda webbplatsen.
-        </p>
-        <p class="consent-copy" data-consent-status></p>
-        <div class="consent-settings__category">
-          <div>
-            <h3>Nödvändiga</h3>
-            <span class="label">Alltid aktiva</span>
-            <p class="consent-copy">
-              Teknik som krävs för att leverera och skydda webbplatsen.
-            </p>
-          </div>
-        </div>
-        <ul class="page-grid-reset" data-consent-purposes></ul>
-        <footer class="consent-settings__footer">
-          <button
-            class="consent-action"
-            type="button"
-            data-consent-action="save"
-          >
-            Spara
-          </button>
-          <button
-            class="consent-plain text-action"
-            type="button"
-            data-consent-action="withdraw"
-            hidden
-          >
-            Återkalla samtycke
-          </button>
-        </footer>
-      </section>
+    </p>
+    <p class="consent-copy" data-consent-status="">
+    </p>
+    <div class="consent-settings__category">
+     <div>
+      <h3>
+       Nödvändiga
+      </h3>
+      <span class="label">
+       Alltid aktiva
+      </span>
+      <p class="consent-copy">
+       Teknik som krävs för att leverera och skydda webbplatsen.
+      </p>
+     </div>
     </div>
-    <link rel="stylesheet" href="/assets/css/motion.css">
-    <script type="module" src="/assets/js/consent.js"></script>
-  </body>
+    <ul class="page-grid-reset" data-consent-purposes="">
+    </ul>
+    <footer class="consent-settings__footer">
+     <button class="consent-action" data-consent-action="save" type="button">
+      Spara
+     </button>
+     <button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">
+      Återkalla samtycke
+     </button>
+    </footer>
+   </section>
+  </div>
+  <script src="/assets/js/consent.js" type="module">
+  </script>
+ </body>
 </html>

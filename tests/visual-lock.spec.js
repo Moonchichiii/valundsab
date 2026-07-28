@@ -164,7 +164,7 @@ test.describe("M1-08 visual lock", () => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/");
 
-      const anchors = page.locator("a[href]");
+      const anchors = page.locator("a[href]:visible");
       const anchorCount = await anchors.count();
       const focusedIndices = [];
 
@@ -188,7 +188,9 @@ test.describe("M1-08 visual lock", () => {
         }
 
         const focusState = await page.evaluate(() => {
-          const documentAnchors = [...document.querySelectorAll("a[href]")];
+          const documentAnchors = [
+            ...document.querySelectorAll("a[href]"),
+          ].filter((anchor) => anchor.getClientRects().length > 0);
           const active = document.activeElement;
           const index = documentAnchors.indexOf(active);
           const rect = active?.getBoundingClientRect();

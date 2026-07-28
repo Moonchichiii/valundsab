@@ -245,3 +245,17 @@
     }
   }
 }
+
+
+@layer components {
+  .consent-settings {
+    inline-size: min(34rem, 100vw - 2rem);
+    max-block-size: min(40rem, 100svh - 2rem);
+    padding: clamp(var(--space-m), 3vw, var(--space-l));
+  }
+
+  .consent-settings h2 {
+    max-inline-size: 11ch;
+    font-size: clamp(2rem, 1.45rem + 2.4vw, 3.25rem);
+  }
+}

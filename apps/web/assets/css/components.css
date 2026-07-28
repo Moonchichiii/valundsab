@@ -191,3 +191,12 @@
     font: inherit;
   }
 }
+
+
+@layer components {
+  @media (width >= 44rem) {
+    .site-header {
+      z-index: 20;
+    }
+  }
+}
