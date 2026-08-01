@@ -4,3 +4,5 @@ apps/web/**/*.html
 .lighthouseci/
 test-results/
 playwright-report/
+dist/
+.wrangler/

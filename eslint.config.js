@@ -19,6 +19,7 @@ const browserGlobals = {
 };
 
 export default [
+  { ignores: ["dist/**", ".wrangler/**"] },
   js.configs.recommended,
   {
     files: ["**/*.js", "**/*.mjs"],
@@ -45,11 +46,28 @@ export default [
     },
   },
   {
+    files: ["functions/**/*.js"],
+    languageOptions: {
+      globals: {
+        Request: "readonly",
+        Response: "readonly",
+        URL: "readonly",
+        URLSearchParams: "readonly",
+        console: "readonly",
+        fetch: "readonly",
+      },
+    },
+  },
+  {
     files: ["tests/**/*.js"],
     languageOptions: {
       globals: {
         ...nodeGlobals,
         ...browserGlobals,
+        Request: "readonly",
+        Response: "readonly",
+        URLSearchParams: "readonly",
+        globalThis: "readonly",
         localStorage: "readonly",
         sessionStorage: "readonly",
         HTMLElement: "readonly",

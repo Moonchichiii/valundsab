@@ -9,14 +9,17 @@ HTML carries meaning. CSS carries presentation and state. JavaScript
 carries only necessary behavior. Comments carry only hidden constraints.
 Everything else is removed.
 
-## No-build principle
+## Build principle
 
-The deployable directory `apps/web` is the source of truth. The deployed
-file contents must match the committed contents of `apps/web`. Transport
-compression, TLS termination, and platform-applied HTTP headers are
-permitted and are not considered source transformation. Minification,
-bundling, HTML rewriting, asset hashing, and framework builds are
-forbidden.
+`apps/web` is the editable web source, `functions/` holds Cloudflare Pages
+Functions, and `dist/` is the generated deployable output. The build is
+deterministic: the same source always produces the same output, and `dist/`
+is never edited by hand. Transport compression, TLS termination, and
+platform-applied HTTP headers are not source transformation.
+
+The build may resolve CSS imports, bundle CSS, and minify CSS. HTML
+minification, JavaScript bundling, asset hashing, fingerprinted filenames,
+and framework builds are forbidden. See decision record 0006.
 
 ## HTML
 
@@ -45,10 +48,13 @@ Files under `apps/web/assets/css/`, layered in this order:
 @layer reset, tokens, base, layout, components, pages, enhancements;
 ```
 
-`app.css` contains only the layer declaration and imports. Each file owns
-its responsibility: `foundation.css` (fonts, reset, tokens, base
-typography), `layout.css` (grid and primitives), `components.css`,
-`pages.css`, `motion.css`.
+CSS source remains modular and follows the locked layer order. `app.css` is
+the entry point and contains only the layer declaration and the layered
+imports; each other file owns one responsibility: `reset.css`,
+`foundation.css` (fonts and tokens), `base.css`, `layout.css`,
+`components.css`, `pages.css`, `motion.css`. The production `app.css` is
+generated during the build into `dist/assets/css/app.css` and must not be
+edited manually. Runtime CSS imports and inline critical CSS are prohibited.
 
 ### Feature adoption
 

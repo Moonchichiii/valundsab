@@ -34,7 +34,8 @@ baseline`.
 
 ```
 bun install        install development tooling
-bun run serve      serve apps/web at http://127.0.0.1:8000
+bun run build      generate the deployable output in dist/
+bun run dev        build and serve dist/ at http://127.0.0.1:8000
 bun run check      run all source checks
 ```
 

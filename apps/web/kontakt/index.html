@@ -52,40 +52,105 @@
      Kontakt
     </h1>
     <p class="page-intro__lead lead">
-     Vi svarar gärna på frågor om bolaget, produkterna eller relevanta
-          samarbeten.
+     Vi svarar gärna på frågor om bolaget, produkterna eller relevanta samarbeten.
     </p>
    </section>
-   <section aria-labelledby="topics-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Ärenden
-    </p>
-    <h2 id="topics-title">
-     Det här hjälper vi gärna till med.
-    </h2>
-    <ul class="principle-list">
-     <li>
-      <strong>
-       Frågor om bolaget
-      </strong>
-      — vad Valunds är och hur vi
-            arbetar.
-     </li>
-     <li>
-      <strong>
-       Frågor om produkterna
-      </strong>
-      — Valunds ServiceBok och
-            SkogsKvitto.
-     </li>
-     <li>
-      <strong>
-       Samarbeten
-      </strong>
-      — förslag med tydlig koppling till
-            det vi bygger.
-     </li>
-    </ul>
+   <section aria-labelledby="write-title" class="page-section page-grid">
+    <div class="contact-layout">
+     <div class="contact-aside">
+      <p class="label page-section__label">
+       Ärenden
+      </p>
+      <h2 id="write-title">
+       Skriv till oss.
+      </h2>
+      <ul class="principle-list">
+       <li>
+        <strong>
+         Frågor om bolaget
+        </strong>
+        — vad Valunds är och hur vi arbetar.
+       </li>
+       <li>
+        <strong>
+         Frågor om produkterna
+        </strong>
+        — Valunds ServiceBok och SkogsKvitto.
+       </li>
+       <li>
+        <strong>
+         Samarbeten
+        </strong>
+        — förslag med tydlig koppling till det vi bygger.
+       </li>
+      </ul>
+      <p class="contact-aside__note meta">
+       Vi läser allt som kommer in och svarar så snart vi kan. Du kan också
+       skriva direkt till
+       <a class="text-action" href="mailto:kontakt@valunds.se">kontakt@valunds.se</a>.
+      </p>
+     </div>
+     <form action="/api/contact" class="contact-form" method="post">
+      <p class="contact-form__field">
+       <label for="contact-name">
+        Namn
+       </label>
+       <input autocomplete="name" id="contact-name" maxlength="120" name="name" required type="text">
+      </p>
+      <p class="contact-form__field">
+       <label for="contact-email">
+        E-post
+       </label>
+       <input autocomplete="email" id="contact-email" maxlength="200" name="email" required type="email">
+      </p>
+      <p class="contact-form__field">
+       <label for="contact-company">
+        Företag
+        <span class="contact-form__optional">
+         valfritt
+        </span>
+       </label>
+       <input autocomplete="organization" id="contact-company" maxlength="120" name="company" type="text">
+      </p>
+      <p class="contact-form__field">
+       <label for="contact-subject">
+        Ärende
+       </label>
+       <select id="contact-subject" name="subject" required>
+        <option value="bolaget">
+         Frågor om bolaget
+        </option>
+        <option value="produkterna">
+         Frågor om produkterna
+        </option>
+        <option value="samarbeten">
+         Samarbeten
+        </option>
+       </select>
+      </p>
+      <p class="contact-form__field">
+       <label for="contact-message">
+        Meddelande
+       </label>
+       <textarea id="contact-message" maxlength="4000" name="message" required rows="8"></textarea>
+      </p>
+      <p aria-hidden="true" class="contact-form__trap">
+       <label for="contact-website">
+        Lämna detta fält tomt
+       </label>
+       <input autocomplete="off" id="contact-website" name="website" tabindex="-1" type="text">
+      </p>
+      <p class="contact-form__actions">
+       <button class="contact-form__submit" type="submit">
+        Skicka meddelande
+       </button>
+      </p>
+      <p class="contact-form__note meta">
+       Vi använder uppgifterna endast för att besvara din fråga. Läs mer på
+       <a class="text-action" href="/integritet/">Integritet</a>.
+      </p>
+     </form>
+    </div>
    </section>
   </main>
   <footer class="site-footer page-grid">

@@ -10,9 +10,9 @@ export default defineConfig({
     baseURL: "http://127.0.0.1:8000",
   },
   webServer: {
-    command: "bun scripts/serve.mjs",
+    command: "bun run build && bun scripts/serve.mjs",
     url: "http://127.0.0.1:8000",
     reuseExistingServer: !process.env.CI,
-    timeout: 15000,
+    timeout: 90000,
   },
 });

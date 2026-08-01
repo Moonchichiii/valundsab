@@ -1,0 +1,75 @@
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  background: var(--surface-page);
+  color: var(--text-primary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--leading-section);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-title);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wght" var(--weight-display);
+  line-height: var(--leading-title);
+  letter-spacing: var(--tracking-title);
+}
+
+h2 {
+  font-size: var(--text-section);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-section);
+}
+
+h3 {
+  font-size: var(--text-product);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-product);
+  letter-spacing: var(--tracking-product);
+}
+
+strong {
+  font-weight: var(--weight-semibold);
+}
+
+.pretty {
+  text-wrap: pretty;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wght" var(--weight-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+  letter-spacing: var(--tracking-lead);
+  color: var(--text-secondary);
+  max-inline-size: var(--measure-text);
+}
+
+.label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.meta {
+  font-size: var(--text-nav);
+  color: var(--text-secondary);
+}

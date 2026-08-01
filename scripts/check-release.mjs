@@ -10,7 +10,7 @@ import {
   sep,
 } from "node:path";
 
-const root = resolve("apps/web");
+const root = resolve("dist");
 
 const allowedExtensions = new Set([
   ".avif",
@@ -30,7 +30,7 @@ const allowedExtensions = new Set([
   ".xml",
 ]);
 
-const allowedFiles = new Set(["_headers"]);
+const allowedFiles = new Set(["_routes.json", "_headers"]);
 
 const budgets = {
   javascriptGzip: 4096,
@@ -117,8 +117,10 @@ for (const file of files) {
 }
 
 const rootIndex = join(root, "index.html");
+const notFoundDocument = join(root, "404.html");
+const confirmationDocument = join(root, "kontakt", "tack", "index.html");
 const reachable = new Set();
-const queue = [rootIndex];
+const queue = [rootIndex, notFoundDocument, confirmationDocument];
 
 while (queue.length > 0) {
   const current = queue.pop();

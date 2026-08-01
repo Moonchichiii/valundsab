@@ -3,7 +3,7 @@ import { extname, join, relative, resolve } from "node:path";
 
 import { headersForPath, parseHeadersFile } from "./headers.mjs";
 
-const root = resolve("apps/web");
+const root = resolve("dist");
 const headersPath = join(root, "_headers");
 const findings = [];
 

@@ -8,8 +8,10 @@ main (merge)  →  automatic production deployment
 Rollback      →  instant restore from Pages deployment history
 ```
 
-The deployable directory is `apps/web`, served exactly as committed. See
-`docs/decisions/0005-hosting-platform.md`.
+The deployable directory is `dist/`, produced by `bun run build`. See
+`docs/decisions/0005-hosting-platform.md` for the hosting platform and
+`docs/decisions/0006-progressive-cloudflare-application.md` for the build,
+output and runtime model.
 
 ## Provider settings (Cloudflare dashboard)
 
@@ -18,9 +20,9 @@ Pages project connected to this repository:
 ```
 Framework preset     None
 Production branch    main
-Root directory       apps/web
-Build command        (blank)
-Output directory     .
+Root directory       (repository root)
+Build command        bun run build
+Output directory     dist
 Preview deployments  All non-main branches
 ```
 

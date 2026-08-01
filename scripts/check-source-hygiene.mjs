@@ -37,6 +37,8 @@ const textExtensions = new Set([
 ]);
 
 const skippedDirectories = new Set([
+  ".wrangler",
+  "dist",
   ".git",
   ".lighthouseci",
   "node_modules",

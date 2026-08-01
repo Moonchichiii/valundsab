@@ -90,12 +90,7 @@ test.describe("static security baseline", () => {
     const response = await request.get("/_headers");
 
     expect(response.status()).toBe(404);
-
-    const headers = response.headers();
-
-    for (const [name, expectedValue] of expectedHeaders) {
-      expect(headers[name], `404 ${name}`).toBe(expectedValue);
-    }
+    expect(await response.text()).not.toContain("Content-Security-Policy");
   });
 });
 

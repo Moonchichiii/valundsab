@@ -4,7 +4,7 @@ import { extname, join, normalize, resolve, sep } from "node:path";
 
 import { headersForPath, loadHeadersFile } from "./headers.mjs";
 
-const root = resolve("apps/web");
+const root = resolve("dist");
 const port = 8000;
 const headerRules = await loadHeadersFile(join(root, "_headers"));
 
