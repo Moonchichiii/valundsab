@@ -12,13 +12,14 @@ test.describe("site navigation", () => {
       await page.goto(route);
 
       await expect(page.locator("nav")).toHaveCount(1);
-      await expect(page.locator(".site-navigation__list > li")).toHaveCount(4);
+      await expect(page.locator(".site-navigation__list > li")).toHaveCount(5);
 
       const destinations = await page
         .locator(".site-navigation a")
         .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
 
       expect(destinations).toEqual([
+        "/",
         "/portfolj/",
         "/bolaget/",
         "/engineering/",

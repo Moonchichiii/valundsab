@@ -11,7 +11,6 @@
   <link href="/apple-touch-icon.png" rel="apple-touch-icon">
   <meta content="Valunds Digitala Tjänster är ett svenskt teknikbolag som utvecklar, äger och förvaltar digitala produkter med långsiktigt värde." name="description">
   <link as="font" crossorigin="anonymous" fetchpriority="high" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" rel="preload" type="font/woff2">
-  <link as="style" href="/assets/css/app.css" rel="preload">
   <link href="/assets/css/app.css" rel="stylesheet">
  </head>
  <body>
@@ -24,6 +23,7 @@
    </a>
    <nav aria-label="Huvudnavigation" class="site-navigation">
     <ul class="site-navigation__list">
+<li class="site-navigation__home"><a aria-label="Till startsidan" href="/"><img alt="" decoding="async" height="40" src="/assets/brand/valunds-mark.svg" width="40"></a></li>
      <li>
       <a href="/portfolj/">
        Portfölj
@@ -36,7 +36,7 @@
      </li>
      <li>
       <a href="/engineering/">
-       Engineering
+       Teknik
       </a>
      </li>
      <li>
@@ -48,7 +48,7 @@
    </nav>
   </header>
   <main id="main">
-   <section aria-labelledby="hero-title" class="hero page-grid">
+<section aria-labelledby="hero-title" class="hero page-grid">
     <h1 class="hero__title display" id="hero-title">
      <span>
       Vi bygger och driver
@@ -78,190 +78,112 @@
      </p>
     </div>
    </section>
-   <section aria-labelledby="work-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Så arbetar vi
-    </p>
-    <h2 id="work-title">
-     Vi utvecklar, äger och förvaltar.
-    </h2>
-    <p class="page-section__lead">
-     Valunds bygger digitala produkter för att driva dem vidare — inte
-          för att lämna över dem. Samma bolag ansvarar för idé, utveckling,
-          drift och vidareutveckling. Det ger produkter som förbättras
-          metodiskt över tid och beslut som tål att granskas i efterhand.
-    </p>
-   </section>
-   <section aria-labelledby="portfolio-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Portfölj
-    </p>
-    <h2 id="portfolio-title">
-     Produkter vi bygger vidare på.
-    </h2>
-    <div class="product-preview" data-scene="servicebok">
-     <figure class="product-visual product-preview__visual">
+<section aria-labelledby="work-title" class="page-section page-grid">
+<div class="section-split">
+<div class="section-split__head">
+<p class="label page-section__label">Så arbetar vi</p>
+<h2 id="work-title">Vi utvecklar, äger och förvaltar.</h2>
+</div>
+<div class="section-split__body">
+<p>Valunds bygger digitala produkter för att driva dem vidare — inte för att lämna över dem. Samma bolag ansvarar för idé, utveckling, drift och vidareutveckling. Det ger produkter som förbättras metodiskt över tid och beslut som tål att granskas i efterhand.</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="portfolio-title" class="page-section page-grid">
+<p class="label page-section__label">Portfölj</p>
+<h2 id="portfolio-title">Produkter vi bygger vidare på.</h2>
+<div class="product-preview" data-scene="servicebok">
+<div class="product-preview__inner">
+<figure class="product-visual product-preview__visual">
       <picture><source media="(max-width: 43.99rem)" type="image/avif" srcset="/assets/products/servicebok-mobile-light-360.avif 360w, /assets/products/servicebok-mobile-light-540.avif 540w, /assets/products/servicebok-mobile-light-720.avif 720w" sizes="calc(100vw - 2.5rem)"><source media="(max-width: 43.99rem)" type="image/webp" srcset="/assets/products/servicebok-mobile-light-360.webp 360w, /assets/products/servicebok-mobile-light-540.webp 540w, /assets/products/servicebok-mobile-light-720.webp 720w" sizes="calc(100vw - 2.5rem)"><source type="image/avif" srcset="/assets/products/servicebok-desktop-light-720.avif 720w, /assets/products/servicebok-desktop-light-960.avif 960w, /assets/products/servicebok-desktop-light-1280.avif 1280w, /assets/products/servicebok-desktop-light-1600.avif 1600w" sizes="(min-width: 80rem) 40rem, 46vw"><source type="image/webp" srcset="/assets/products/servicebok-desktop-light-720.webp 720w, /assets/products/servicebok-desktop-light-960.webp 960w, /assets/products/servicebok-desktop-light-1280.webp 1280w" sizes="(min-width: 80rem) 40rem, 46vw"><img alt="Anonymiserad produktvy av ServiceBok med servicehistorik, dokumentation och nästa planerade service." class="product-visual__frame" decoding="async" height="1000" loading="lazy" src="/assets/products/servicebok-desktop-light-960.webp" width="1600"></picture>
       <figcaption>Anonymiserad produktvy.</figcaption>
      </figure>
-     <div class="product-preview__body">
-      <p class="label product-preview__meta">
-       Produkt · Fordon
-      </p>
-      <h3>
-       Valunds ServiceBok
-      </h3>
-      <p>
-       En digital servicebok för fordon. Servicehistorik, kvitton och
-              dokumentation samlade på ett ställe — strukturerat, tillgängligt
-              och byggt med långsiktig förvaltning och dataskydd i fokus.
-      </p>
-      <p>
-       <a class="text-action" data-variant="primary" href="/portfolj/">
-        Läs mer om ServiceBok
-       </a>
-      </p>
-     </div>
-    </div>
-    <div class="product-preview" data-scene="skogskvitto" data-variant="mirror">
-     <figure class="product-visual product-preview__visual">
+<div class="product-preview__body">
+<p class="label product-preview__meta">Innehav 01 · Fordon</p>
+<h3>Valunds ServiceBok</h3>
+<p>En digital servicebok för fordon. Servicehistorik, kvitton och dokumentation samlade på ett ställe — strukturerat, tillgängligt och byggt med långsiktig förvaltning och dataskydd i fokus.</p>
+<dl class="product-facts">
+<div><dt class="label">Segment</dt><dd>Fordon</dd></div>
+<div><dt class="label">Ansvar</dt><dd>Idé till drift och förvaltning</dd></div>
+</dl>
+<p><a class="text-action" data-variant="primary" href="/portfolj/">Läs mer om ServiceBok</a></p>
+</div>
+</div>
+</div>
+<div class="product-preview" data-scene="skogskvitto" data-variant="mirror">
+<div class="product-preview__inner">
+<figure class="product-visual product-preview__visual">
       <picture><source media="(max-width: 43.99rem)" type="image/avif" srcset="/assets/products/skogskvitto-mobile-360.avif 360w, /assets/products/skogskvitto-mobile-540.avif 540w, /assets/products/skogskvitto-mobile-720.avif 720w" sizes="calc(100vw - 2.5rem)"><source media="(max-width: 43.99rem)" type="image/webp" srcset="/assets/products/skogskvitto-mobile-360.webp 360w, /assets/products/skogskvitto-mobile-540.webp 540w, /assets/products/skogskvitto-mobile-720.webp 720w" sizes="calc(100vw - 2.5rem)"><source type="image/avif" srcset="/assets/products/skogskvitto-desktop-720.avif 720w, /assets/products/skogskvitto-desktop-960.avif 960w, /assets/products/skogskvitto-desktop-1280.avif 1280w, /assets/products/skogskvitto-desktop-1600.avif 1600w" sizes="(min-width: 80rem) 40rem, 46vw"><source type="image/webp" srcset="/assets/products/skogskvitto-desktop-720.webp 720w, /assets/products/skogskvitto-desktop-960.webp 960w, /assets/products/skogskvitto-desktop-1280.webp 1280w" sizes="(min-width: 80rem) 40rem, 46vw"><img alt="Anonymiserad produktvy av SkogsKvitto med kvitton, bokföringsår och ett spårbart arbetsflöde." class="product-visual__frame" decoding="async" height="1000" loading="lazy" src="/assets/products/skogskvitto-desktop-960.webp" width="1600"></picture>
       <figcaption>Anonymiserad produktvy.</figcaption>
      </figure>
-     <div class="product-preview__body">
-      <p class="label product-preview__meta">
-       Produkt · Skogsbruk
-      </p>
-      <h3>
-       SkogsKvitto
-      </h3>
-      <p>
-       En digital tjänst för skogsägare och ekonomiskt underlag.
-              Kvitton och dokument samlas och struktureras så att mindre tid
-              går till manuellt arbete — med spårbarhet och långsiktig
-              datakvalitet som grund.
-      </p>
-      <p>
-       <a class="text-action" data-variant="primary" href="/portfolj/">
-        Läs mer om SkogsKvitto
-       </a>
-      </p>
-     </div>
-    </div>
-   </section>
-   <section aria-labelledby="principles-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Principer
-    </p>
-    <h2 id="principles-title">
-     Byggt för att hålla.
-    </h2>
-    <ul class="principle-list">
-     <li>
-      <strong>
-       Säkerhet som grundkrav.
-      </strong>
-      Inte ett tillval i
-            efterhand.
-     </li>
-     <li>
-      <strong>
-       Integritet.
-      </strong>
-      Så lite data som möjligt, så tydligt
-            hanterad som möjligt.
-     </li>
-     <li>
-      <strong>
-       Tillgänglighet.
-      </strong>
-      Produkterna ska fungera för
-            fler, inte färre.
-     </li>
-     <li>
-      <strong>
-       Prestanda.
-      </strong>
-      Snabbt är en egenskap, inte en
-            optimering.
-     </li>
-     <li>
-      <strong>
-       Begriplig teknik.
-      </strong>
-      Val som går att förklara går
-            att förvalta.
-     </li>
-    </ul>
-   </section>
-   <section aria-labelledby="next-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Vidare
-    </p>
-    <h2 id="next-title">
-     Se vad vi bygger.
-    </h2>
-    <p class="page-section__lead">
-     Portföljen visar produkterna. Bolagssidan visar varför vi arbetar
-          så här.
-    </p>
-    <div class="cluster page-section__actions">
-     <a class="text-action" data-variant="primary" href="/portfolj/">
-      Utforska portföljen
-     </a>
-     <a class="text-action" href="/bolaget/">
-      Om bolaget
-     </a>
-     <a class="text-action" href="/kontakt/">
-      Kontakt
-     </a>
-    </div>
-   </section>
-  </main>
+<div class="product-preview__body">
+<p class="label product-preview__meta">Innehav 02 · Skogsbruk</p>
+<h3>SkogsKvitto</h3>
+<p>En digital tjänst för skogsägare och ekonomiskt underlag. Kvitton och dokument samlas och struktureras så att mindre tid går till manuellt arbete — med spårbarhet och långsiktig datakvalitet som grund.</p>
+<dl class="product-facts">
+<div><dt class="label">Segment</dt><dd>Skogsbruk</dd></div>
+<div><dt class="label">Ansvar</dt><dd>Idé till drift och förvaltning</dd></div>
+</dl>
+<p><a class="text-action" data-variant="primary" href="/portfolj/">Läs mer om SkogsKvitto</a></p>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="principles-title" class="page-section page-grid">
+<div class="section-split">
+<div class="section-split__head">
+<p class="label page-section__label">Principer</p>
+<h2 id="principles-title">Byggt för att hålla.</h2>
+</div>
+<div class="section-split__body">
+<ol class="principle-ledger">
+<li><span class="label principle-ledger__index">01</span><b>Säkerhet som grundkrav</b><p>Inte ett tillval i efterhand.</p></li>
+<li><span class="label principle-ledger__index">02</span><b>Integritet</b><p>Så lite data som möjligt, så tydligt hanterad som möjligt.</p></li>
+<li><span class="label principle-ledger__index">03</span><b>Tillgänglighet</b><p>Produkterna ska fungera för fler, inte färre.</p></li>
+<li><span class="label principle-ledger__index">04</span><b>Prestanda</b><p>Snabbt är en egenskap, inte en optimering.</p></li>
+<li><span class="label principle-ledger__index">05</span><b>Begriplig teknik</b><p>Val som går att förklara och förvalta.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section aria-labelledby="next-title" class="page-grid">
+<div class="page-next">
+<p class="label page-section__label" id="next-title">Vidare</p>
+<p class="meta">Portföljen visar produkterna. Bolagssidan visar varför vi arbetar så här.</p>
+<a class="text-action" data-variant="primary" href="/portfolj/">Utforska portföljen</a>
+<a class="text-action" href="/bolaget/">Om bolaget</a>
+<a class="text-action" href="/kontakt/">Kontakt</a>
+</div>
+</section>
+</main>
   <footer class="site-footer page-grid">
-   <div class="site-footer__inner">
-    <div class="site-footer__identity">
-     <p class="site-footer__name">
-      Valunds Digitala Tjänster
-     </p>
-     <p class="meta">
-      © 2026 Valunds Digitala Tjänster
-     </p>
-    </div>
-    <ul class="site-footer__links">
-     <li>
-      <a class="site-footer__link" href="/portfolj/">
-       Portfölj
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/bolaget/">
-       Bolaget
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/engineering/">
-       Engineering
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/kontakt/">
-       Kontakt
-      </a>
-     </li>
-     <li class="site-footer__legal">
-      <a class="site-footer__link" href="/kakor/">
-       Kakor
-      </a>
-     </li>
-     <li class="site-footer__legal">
-      <a class="site-footer__link" href="/integritet/">
-       Integritet
-      </a>
-     </li>
-    </ul>
-   </div>
-  </footer>
+<div class="site-footer__inner">
+<div class="site-footer__identity">
+<a aria-label="Valunds startsida" class="site-footer__brand" href="/"><img alt="Valunds" decoding="async" height="50" src="/assets/brand/valunds-wordmark.svg" width="207"></a>
+<p class="site-footer__descriptor">Svenska digitala produkter, byggda för långsiktigt ägande.</p>
+<section aria-labelledby="footer-contact-title" class="site-footer__contact">
+<h2 class="label site-footer__heading" id="footer-contact-title">Kontakt</h2>
+<p class="site-footer__mail"><a class="text-action" data-variant="primary" href="mailto:kontakt@valunds.se">kontakt@valunds.se</a></p>
+</section>
+</div>
+<section aria-labelledby="footer-explore-title" class="site-footer__explore">
+<h2 class="label site-footer__heading" id="footer-explore-title">Utforska</h2>
+<ul class="site-footer__links">
+<li><a class="site-footer__link" href="/portfolj/">Portfölj</a></li>
+<li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
+<li><a class="site-footer__link" href="/engineering/">Teknik</a></li>
+<li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
+</ul>
+</section>
+</div>
+<div class="site-footer__legal-bar">
+<p>© 2026 Valunds Digitala Tjänster</p>
+<ul class="site-footer__legal-links">
+<li><a class="site-footer__link" href="/kakor/">Kakor</a></li>
+<li><a class="site-footer__link" href="/integritet/">Integritet</a></li>
+</ul>
+</div>
+</footer>
   <div data-consent="">
    <section aria-labelledby="consent-title" class="consent-banner" hidden>
     <div class="consent-banner__scroll">
@@ -315,51 +237,30 @@
     </span>
    </button>
    <section aria-labelledby="cookie-settings-title" class="consent-settings" id="cookie-settings" popover>
-    <header class="consent-settings__header">
-     <div>
-      <p class="label">
-       Kakor
-      </p>
-      <h2 id="cookie-settings-title">
-       Om kakor på Valunds
-      </h2>
-     </div>
-     <button class="consent-plain text-action" popovertarget="cookie-settings" popovertargetaction="hide" type="button">
-      Stäng
-     </button>
-    </header>
-    <p class="consent-copy">
-     Webbplatsens egen kod använder för närvarande inga analys-,
-          marknadsförings- eller profileringskakor. Nödvändig teknik kan
-          användas av drift- och säkerhetsleverantören för att leverera och
-          skydda webbplatsen.
-    </p>
-    <p class="consent-copy" data-consent-status="">
-    </p>
-    <div class="consent-settings__category">
-     <div>
-      <h3>
-       Nödvändiga
-      </h3>
-      <span class="label">
-       Alltid aktiva
-      </span>
-      <p class="consent-copy">
-       Teknik som krävs för att leverera och skydda webbplatsen.
-      </p>
-     </div>
-    </div>
-    <ul class="page-grid-reset" data-consent-purposes="">
-    </ul>
-    <footer class="consent-settings__footer">
-     <button class="consent-action" data-consent-action="save" type="button">
-      Spara
-     </button>
-     <button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">
-      Återkalla samtycke
-     </button>
-    </footer>
-   </section>
+<header class="consent-settings__header">
+<div>
+<p class="label">Kakor</p>
+<h2 id="cookie-settings-title">Om kakor på Valunds</h2>
+</div>
+<button class="consent-plain text-action consent-settings__close" popovertarget="cookie-settings" popovertargetaction="hide" type="button">Stäng</button>
+</header>
+<p class="consent-copy">Webbplatsens egen kod använder för närvarande inga analys-, marknadsförings- eller profileringskakor. Nödvändig teknik kan användas av drift- och säkerhetsleverantören för att leverera och skydda webbplatsen.</p>
+<p class="consent-copy consent-settings__status" data-consent-status=""></p>
+<div class="consent-settings__category">
+<div>
+<h3>Nödvändiga</h3>
+<span class="label">Alltid aktiva</span>
+<p class="consent-copy">Teknik som krävs för att leverera och skydda webbplatsen.</p>
+</div>
+</div>
+<ul class="page-grid-reset" data-consent-purposes=""></ul>
+<footer class="consent-settings__footer">
+<a class="text-action" href="/kakor/">Läs om kakor</a>
+<button class="consent-primary" popovertarget="cookie-settings" popovertargetaction="hide" type="button">Klar</button>
+<button class="consent-action" data-consent-action="save" type="button">Spara</button>
+<button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">Återkalla samtycke</button>
+</footer>
+</section>
   </div>
   <script src="/assets/js/consent.js" type="module">
   </script>

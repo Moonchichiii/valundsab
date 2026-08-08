@@ -2,4 +2,16 @@
   a {
     transition: text-decoration-color var(--duration-micro) var(--ease-standard);
   }
+
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-navigation__home a {
+    transition:
+      opacity var(--duration-panel) var(--ease-standard),
+      translate var(--duration-panel) var(--ease-standard);
+  }
 }

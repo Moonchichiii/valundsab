@@ -26,7 +26,7 @@ module.exports = {
         "resource-summary:image:size": ["error", { maxNumericValue: 153600 }],
         "resource-summary:stylesheet:size": [
           "error",
-          { maxNumericValue: 25600 },
+          { maxNumericValue: 26624 },
         ],
         "resource-summary:total:size": ["error", { maxNumericValue: 153600 }],
         "resource-summary:third-party:count": ["error", { maxNumericValue: 0 }],

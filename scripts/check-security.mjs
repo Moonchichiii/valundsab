@@ -38,7 +38,7 @@ const requiredHeaders = new Map([
   ["referrer-policy", "strict-origin-when-cross-origin"],
   [
     "permissions-policy",
-    "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+    "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), usb=(), xr-spatial-tracking=()",
   ],
   ["cross-origin-opener-policy", "same-origin"],
   ["cross-origin-resource-policy", "same-origin"],

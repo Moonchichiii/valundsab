@@ -4,13 +4,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>
-   Engineering — Valunds Digitala Tjänster
+   Teknik — Valunds Digitala Tjänster
   </title>
   <link href="/favicon.svg" rel="icon" type="image/svg+xml">
   <link href="/favicon.ico" rel="icon" sizes="any">
   <link href="/apple-touch-icon.png" rel="apple-touch-icon">
   <meta content="Engineering hos Valunds — teknik som går att förstå och förvalta, med säkerhet, tillgänglighet och prestanda som grundkrav." name="description">
-  <link as="style" href="/assets/css/app.css" rel="preload">
   <link href="/assets/css/app.css" rel="stylesheet">
  </head>
  <body>
@@ -23,6 +22,7 @@
    </a>
    <nav aria-label="Huvudnavigation" class="site-navigation">
     <ul class="site-navigation__list">
+<li class="site-navigation__home"><a aria-label="Till startsidan" href="/"><img alt="" decoding="async" height="40" src="/assets/brand/valunds-mark.svg" width="40"></a></li>
      <li>
       <a href="/portfolj/">
        Portfölj
@@ -35,7 +35,7 @@
      </li>
      <li>
       <a aria-current="page" href="/engineering/">
-       Engineering
+       Teknik
       </a>
      </li>
      <li>
@@ -47,128 +47,87 @@
    </nav>
   </header>
   <main id="main">
-   <section aria-labelledby="page-title" class="page-intro page-grid">
-    <h1 id="page-title">
-     Engineering
-    </h1>
-    <p class="page-intro__lead lead">
-     Teknik som går att förstå och förvalta. Långsiktigt produktägande
-          ställer krav: tydliga system, begripliga val och kvalitet som
-          kontrolleras automatiskt — inte vid tillfälle.
-    </p>
-   </section>
-   <section aria-labelledby="engineering-principle-title" class="engineering-statement page-grid">
-    <p class="label">
-     Engineeringprincip
-    </p>
-    <h2 id="engineering-principle-title">
-     Vi mäter inte framgång i antalet ramverk vi använder. Vi mäter den i kvaliteten på det vi bygger, hur länge det håller och hur väl det går att förvalta.
-    </h2>
-    <p class="engineering-statement__translation" lang="en">
-     We don’t measure success by the number of frameworks we use. We measure it by the quality, longevity, and maintainability of the software we build.
-    </p>
-   </section>
-   <section aria-labelledby="product-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Utgångspunkt
-    </p>
-    <h2 id="product-title">
-     Produktnära engineering.
-    </h2>
-    <p class="page-section__lead">
-     Vår engineering finns till för produkterna, inte tvärtom. Vi väljer
-          lösningar efter vad en produkt behöver bära i drift under lång tid,
-          och vi undviker beroenden som gör morgondagens underhåll dyrare än
-          dagens utveckling.
-    </p>
-   </section>
-   <section aria-labelledby="security-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Säkerhet
-    </p>
-    <h2 id="security-title">
-     Säkerhet och integritet.
-    </h2>
-    <p class="page-section__lead">
-     Säkerhet är ett grundkrav i allt vi bygger: strikta
-          säkerhetsheaders, minimala angreppsytor och så lite datainsamling
-          som möjligt. Integritet är en designfråga — det som inte samlas in
-          behöver aldrig skyddas.
-    </p>
-   </section>
-   <section aria-labelledby="performance-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Kvalitet
-    </p>
-    <h2 id="performance-title">
-     Prestanda och tillgänglighet.
-    </h2>
-    <p class="page-section__lead">
-     Snabbt och tillgängligt är egenskaper vi bygger in, inte optimerar
-          fram. Vi utformar och testar våra produkter för tangentbord,
-          hjälpmedel, varierande uppkopplingar och olika skärmstorlekar.
-    </p>
-   </section>
-   <section aria-labelledby="operations-title" class="page-section page-grid page-section--centered">
-    <p class="label page-section__label">
-     Förvaltning
-    </p>
-    <h2 id="operations-title">
-     Drift, testning och långsiktig förvaltning.
-    </h2>
-    <p class="page-section__lead">
-     Varje förändring passerar automatiska kontroller innan den når
-          produktion: validering, tillgänglighetstester, prestandabudgetar
-          och säkerhetskontroller. Det som verifieras är det som publiceras.
-          Dokumentation och beslutshistorik gör att systemen går att förvalta
-          även om lång tid passerat.
-    </p>
-   </section>
-  </main>
+<section aria-labelledby="page-title" class="page-intro page-grid">
+<h1 id="page-title">Teknik</h1>
+<p class="statement statement--calm">Teknik som går att förstå och förvalta. Långsiktigt produktägande ställer krav: tydliga system, begripliga val och kvalitet som kontrolleras automatiskt — inte vid tillfälle.</p>
+</section>
+<section aria-labelledby="engineering-principle-title" class="engineering-statement page-grid">
+<h2 class="label" id="engineering-principle-title">Teknisk princip</h2>
+<p class="statement statement--quote">Vi mäter inte framgång i antalet ramverk vi använder. Vi mäter den i kvaliteten på det vi bygger, hur länge det håller och hur väl det går att förvalta.</p>
+</section>
+<section aria-labelledby="product-title" class="page-section page-section--dense page-grid">
+<div class="section-split section-split--register">
+<div class="section-split__head">
+<p class="label page-section__label">Utgångspunkt</p>
+</div>
+<div class="section-split__body">
+<h2 id="product-title">Produktnära teknik.</h2>
+<p>Vår teknik finns till för produkterna, inte tvärtom. Vi väljer lösningar efter vad en produkt behöver bära i drift under lång tid, och vi undviker beroenden som gör morgondagens underhåll dyrare än dagens utveckling.</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="security-title" class="page-section page-section--dense page-grid">
+<div class="section-split section-split--register">
+<div class="section-split__head">
+<p class="label page-section__label">Säkerhet</p>
+</div>
+<div class="section-split__body">
+<h2 id="security-title">Säkerhet och integritet.</h2>
+<p>Säkerhet är ett grundkrav i allt vi bygger: strikta säkerhetsheaders, minimala angreppsytor och så lite datainsamling som möjligt. Integritet är en designfråga — det som inte samlas in behöver aldrig skyddas.</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="performance-title" class="page-section page-section--dense page-grid">
+<div class="section-split section-split--register">
+<div class="section-split__head">
+<p class="label page-section__label">Kvalitet</p>
+</div>
+<div class="section-split__body">
+<h2 id="performance-title">Prestanda och tillgänglighet.</h2>
+<p>Snabbt och tillgängligt är egenskaper vi bygger in, inte optimerar fram. Vi utformar och testar våra produkter för tangentbord, hjälpmedel, varierande uppkopplingar och olika skärmstorlekar.</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="operations-title" class="page-section page-section--dense page-grid">
+<div class="section-split section-split--register">
+<div class="section-split__head">
+<p class="label page-section__label">Förvaltning</p>
+</div>
+<div class="section-split__body">
+<h2 id="operations-title">Drift, testning och långsiktig förvaltning.</h2>
+<p>Varje förändring passerar automatiska kontroller innan den når produktion: validering, tillgänglighetstester, prestandabudgetar och säkerhetskontroller. Det som verifieras är det som publiceras. Dokumentation och beslutshistorik gör att systemen går att förvalta även om lång tid passerat.</p>
+</div>
+</div>
+</section>
+</main>
   <footer class="site-footer page-grid">
-   <div class="site-footer__inner">
-    <div class="site-footer__identity">
-     <p class="site-footer__name">
-      Valunds Digitala Tjänster
-     </p>
-     <p class="meta">
-      © 2026 Valunds Digitala Tjänster
-     </p>
-    </div>
-    <ul class="site-footer__links">
-     <li>
-      <a class="site-footer__link" href="/portfolj/">
-       Portfölj
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/bolaget/">
-       Bolaget
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/engineering/">
-       Engineering
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/kontakt/">
-       Kontakt
-      </a>
-     </li>
-     <li class="site-footer__legal">
-      <a class="site-footer__link" href="/kakor/">
-       Kakor
-      </a>
-     </li>
-     <li class="site-footer__legal">
-      <a class="site-footer__link" href="/integritet/">
-       Integritet
-      </a>
-     </li>
-    </ul>
-   </div>
-  </footer>
+<div class="site-footer__inner">
+<div class="site-footer__identity">
+<a aria-label="Valunds startsida" class="site-footer__brand" href="/"><img alt="Valunds" decoding="async" height="50" src="/assets/brand/valunds-wordmark.svg" width="207"></a>
+<p class="site-footer__descriptor">Svenska digitala produkter, byggda för långsiktigt ägande.</p>
+<section aria-labelledby="footer-contact-title" class="site-footer__contact">
+<h2 class="label site-footer__heading" id="footer-contact-title">Kontakt</h2>
+<p class="site-footer__mail"><a class="text-action" data-variant="primary" href="mailto:kontakt@valunds.se">kontakt@valunds.se</a></p>
+</section>
+</div>
+<section aria-labelledby="footer-explore-title" class="site-footer__explore">
+<h2 class="label site-footer__heading" id="footer-explore-title">Utforska</h2>
+<ul class="site-footer__links">
+<li><a class="site-footer__link" href="/portfolj/">Portfölj</a></li>
+<li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
+<li><a class="site-footer__link" href="/engineering/">Teknik</a></li>
+<li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
+</ul>
+</section>
+</div>
+<div class="site-footer__legal-bar">
+<p>© 2026 Valunds Digitala Tjänster</p>
+<ul class="site-footer__legal-links">
+<li><a class="site-footer__link" href="/kakor/">Kakor</a></li>
+<li><a class="site-footer__link" href="/integritet/">Integritet</a></li>
+</ul>
+</div>
+</footer>
   <div data-consent="">
    <section aria-labelledby="consent-title" class="consent-banner" hidden>
     <div class="consent-banner__scroll">
@@ -222,51 +181,30 @@
     </span>
    </button>
    <section aria-labelledby="cookie-settings-title" class="consent-settings" id="cookie-settings" popover>
-    <header class="consent-settings__header">
-     <div>
-      <p class="label">
-       Kakor
-      </p>
-      <h2 id="cookie-settings-title">
-       Om kakor på Valunds
-      </h2>
-     </div>
-     <button class="consent-plain text-action" popovertarget="cookie-settings" popovertargetaction="hide" type="button">
-      Stäng
-     </button>
-    </header>
-    <p class="consent-copy">
-     Webbplatsens egen kod använder för närvarande inga analys-,
-          marknadsförings- eller profileringskakor. Nödvändig teknik kan
-          användas av drift- och säkerhetsleverantören för att leverera och
-          skydda webbplatsen.
-    </p>
-    <p class="consent-copy" data-consent-status="">
-    </p>
-    <div class="consent-settings__category">
-     <div>
-      <h3>
-       Nödvändiga
-      </h3>
-      <span class="label">
-       Alltid aktiva
-      </span>
-      <p class="consent-copy">
-       Teknik som krävs för att leverera och skydda webbplatsen.
-      </p>
-     </div>
-    </div>
-    <ul class="page-grid-reset" data-consent-purposes="">
-    </ul>
-    <footer class="consent-settings__footer">
-     <button class="consent-action" data-consent-action="save" type="button">
-      Spara
-     </button>
-     <button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">
-      Återkalla samtycke
-     </button>
-    </footer>
-   </section>
+<header class="consent-settings__header">
+<div>
+<p class="label">Kakor</p>
+<h2 id="cookie-settings-title">Om kakor på Valunds</h2>
+</div>
+<button class="consent-plain text-action consent-settings__close" popovertarget="cookie-settings" popovertargetaction="hide" type="button">Stäng</button>
+</header>
+<p class="consent-copy">Webbplatsens egen kod använder för närvarande inga analys-, marknadsförings- eller profileringskakor. Nödvändig teknik kan användas av drift- och säkerhetsleverantören för att leverera och skydda webbplatsen.</p>
+<p class="consent-copy consent-settings__status" data-consent-status=""></p>
+<div class="consent-settings__category">
+<div>
+<h3>Nödvändiga</h3>
+<span class="label">Alltid aktiva</span>
+<p class="consent-copy">Teknik som krävs för att leverera och skydda webbplatsen.</p>
+</div>
+</div>
+<ul class="page-grid-reset" data-consent-purposes=""></ul>
+<footer class="consent-settings__footer">
+<a class="text-action" href="/kakor/">Läs om kakor</a>
+<button class="consent-primary" popovertarget="cookie-settings" popovertargetaction="hide" type="button">Klar</button>
+<button class="consent-action" data-consent-action="save" type="button">Spara</button>
+<button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">Återkalla samtycke</button>
+</footer>
+</section>
   </div>
   <script src="/assets/js/consent.js" type="module">
   </script>

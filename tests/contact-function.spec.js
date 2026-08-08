@@ -158,7 +158,48 @@ test.describe("contact endpoint contract", () => {
     );
     expect(sent.url).toContain("/email/sending/send");
     expect(sent.options.headers.Authorization).toBe("Bearer token");
-    expect(sent.options.body).toContain(VALID.message);
+    const payload = JSON.parse(sent.options.body);
+    expect(payload.from).toEqual({
+      address: "webb@valundsab.se",
+      name: "Valunds webbplats",
+    });
+    expect(payload.to).toBe("kontakt@valunds.se");
+    expect(payload.reply_to).toBe(VALID.email);
+    expect(payload.text).toContain(VALID.message);
+    expect(payload.content).toBeUndefined();
+  });
+
+  test("a sending service rejection never reports success", async () => {
+    globalThis.fetch = async () =>
+      new Response('{"success":false,"errors":[{"code":1001}]}', {
+        status: 200,
+      });
+
+    const response = await handleContact(post(VALID), {
+      CONTACT_FORM_ENABLED: "true",
+      CLOUDFLARE_ACCOUNT_ID: "account",
+      CONTACT_EMAIL_TOKEN: "token",
+      CONTACT_SENDER_ADDRESS: "webb@valundsab.se",
+    });
+
+    expect(response.status).toBe(502);
+    expect(await response.text()).toContain("kontakt@valunds.se");
+  });
+
+  test("an unreachable sending service never reports success", async () => {
+    globalThis.fetch = async () => {
+      throw new TypeError("network unreachable");
+    };
+
+    const response = await handleContact(post(VALID), {
+      CONTACT_FORM_ENABLED: "true",
+      CLOUDFLARE_ACCOUNT_ID: "account",
+      CONTACT_EMAIL_TOKEN: "token",
+      CONTACT_SENDER_ADDRESS: "webb@valundsab.se",
+    });
+
+    expect(response.status).toBe(502);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
   });
 
   test("a failed delivery never reports success", async () => {

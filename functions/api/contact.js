@@ -191,44 +191,58 @@ export async function handleContact(request, env = {}) {
 }
 
 async function deliver(submission, env) {
-  const response = await fetch(
-    "https://api.cloudflare.com/client/v4/accounts/" +
-      env.CLOUDFLARE_ACCOUNT_ID +
-      "/email/sending/send",
-    {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + env.CONTACT_EMAIL_TOKEN,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: { email: env.CONTACT_SENDER_ADDRESS, name: "Valunds webbplats" },
-        to: [{ email: CONTACT_ADDRESS }],
-        reply_to: { email: submission.email, name: submission.name },
-        subject: "Webbformulär: " + submission.subject,
-        content: [
-          {
-            type: "text/plain",
-            value: [
-              "Namn: " + submission.name,
-              "E-post: " + submission.email,
-              "Företag: " + (submission.company || "-"),
-              "Ärende: " + submission.subject,
-              "",
-              submission.message,
-            ].join("\n"),
+  try {
+    const response = await fetch(
+      "https://api.cloudflare.com/client/v4/accounts/" +
+        env.CLOUDFLARE_ACCOUNT_ID +
+        "/email/sending/send",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + env.CONTACT_EMAIL_TOKEN,
+          "Content-Type": "application/json",
+        },
+        signal: AbortSignal.timeout(10_000),
+        body: JSON.stringify({
+          from: {
+            address: env.CONTACT_SENDER_ADDRESS,
+            name: "Valunds webbplats",
           },
-        ],
-      }),
-    },
-  );
+          to: CONTACT_ADDRESS,
+          reply_to: submission.email,
+          subject: "Webbformulär: " + submission.subject,
+          text: [
+            "Namn: " + submission.name,
+            "E-post: " + submission.email,
+            "Företag: " + (submission.company || "-"),
+            "Ärende: " + submission.subject,
+            "",
+            submission.message,
+          ].join("\n"),
+        }),
+      },
+    );
 
-  if (!response.ok) {
-    console.error("contact delivery failed with status " + response.status);
+    if (!response.ok) {
+      console.error("contact delivery failed with status " + response.status);
+      return false;
+    }
+
+    const outcome = await response.json().catch(() => null);
+
+    if (
+      outcome?.success !== true ||
+      (outcome.result?.permanent_bounces?.length ?? 0) > 0
+    ) {
+      console.error("contact delivery was rejected by the sending service");
+      return false;
+    }
+
+    return true;
+  } catch {
+    console.error("contact delivery could not reach the sending service");
     return false;
   }
-
-  return true;
 }
 
 export async function onRequest(context) {

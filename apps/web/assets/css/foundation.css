@@ -61,24 +61,23 @@
   --weight-display: 620;
 
   --text-display: clamp(3.5rem, 2.357rem + 5.714vw, 7.5rem);
-  --text-title: clamp(3rem, 2rem + 5vw, 6.5rem);
-  --text-section: clamp(2.25rem, 1.464rem + 3.929vw, 5rem);
-  --text-product: clamp(1.75rem, 1.393rem + 1.786vw, 3rem);
+  --text-section: clamp(1.625rem, 1.275rem + 1.35vw, 2.375rem);
+  --text-product: clamp(1.375rem, 1.15rem + 0.85vw, 1.9375rem);
+  --text-statement: clamp(1.75rem, 1.2rem + 2.1vw, 3rem);
+  --text-quote: clamp(1.5rem, 1.3rem + 0.9vw, 2.125rem);
   --text-lead: clamp(1.25rem, 1.143rem + 0.536vw, 1.625rem);
   --text-body: clamp(1.0625rem, 1.027rem + 0.179vw, 1.1875rem);
   --text-nav: clamp(0.9375rem, 0.92rem + 0.089vw, 1rem);
   --text-label: clamp(0.75rem, 0.732rem + 0.089vw, 0.8125rem);
 
   --leading-display: 0.94;
-  --leading-title: 0.94;
-  --leading-section: 0.98;
-  --leading-product: 1.05;
+  --leading-section: 1.12;
+  --leading-product: 1.2;
   --leading-lead: 1.45;
   --leading-body: 1.65;
   --leading-label: 1.2;
 
   --tracking-display: -0.04em;
-  --tracking-title: -0.05em;
   --tracking-section: -0.04em;
   --tracking-product: -0.025em;
   --tracking-lead: -0.01em;

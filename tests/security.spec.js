@@ -22,7 +22,7 @@ const expectedHeaders = new Map([
   ["referrer-policy", "strict-origin-when-cross-origin"],
   [
     "permissions-policy",
-    "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+    "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), usb=(), xr-spatial-tracking=()",
   ],
   ["cross-origin-opener-policy", "same-origin"],
   ["cross-origin-resource-policy", "same-origin"],
@@ -105,7 +105,7 @@ test.describe("JavaScript-disabled operation", () => {
       expect(response.status(), `${route} status`).toBe(200);
 
       await expect(page.locator("h1")).toBeVisible();
-      await expect(page.locator(".site-navigation a")).toHaveCount(4);
+      await expect(page.locator(".site-navigation a")).toHaveCount(5);
     });
   }
 
@@ -113,7 +113,7 @@ test.describe("JavaScript-disabled operation", () => {
     const destinations = [
       { name: "Portfölj", path: "/portfolj/" },
       { name: "Bolaget", path: "/bolaget/" },
-      { name: "Engineering", path: "/engineering/" },
+      { name: "Teknik", path: "/engineering/" },
       { name: "Kontakt", path: "/kontakt/" },
     ];
 

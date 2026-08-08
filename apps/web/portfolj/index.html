@@ -9,8 +9,7 @@
   <link href="/favicon.svg" rel="icon" type="image/svg+xml">
   <link href="/favicon.ico" rel="icon" sizes="any">
   <link href="/apple-touch-icon.png" rel="apple-touch-icon">
-  <meta content="Portföljen hos Valunds Digitala Tjänster — de digitala produkter vi utvecklar, driver och förvaltar." name="description">
-  <link as="style" href="/assets/css/app.css" rel="preload">
+  <meta content="Portföljen hos Valunds Digitala Tjänster — de digitala produkter vi driver och förvaltar." name="description">
   <link href="/assets/css/app.css" rel="stylesheet">
  </head>
  <body>
@@ -23,6 +22,7 @@
    </a>
    <nav aria-label="Huvudnavigation" class="site-navigation">
     <ul class="site-navigation__list">
+<li class="site-navigation__home"><a aria-label="Till startsidan" href="/"><img alt="" decoding="async" height="40" src="/assets/brand/valunds-mark.svg" width="40"></a></li>
      <li>
       <a aria-current="page" href="/portfolj/">
        Portfölj
@@ -35,7 +35,7 @@
      </li>
      <li>
       <a href="/engineering/">
-       Engineering
+       Teknik
       </a>
      </li>
      <li>
@@ -51,14 +51,11 @@
     <h1 id="page-title">
      Portfölj
     </h1>
-    <p class="page-intro__lead lead">
-     Valunds utvecklar och äger sina produkter. Här presenterar vi de
-          digitala produkter vi utvecklar, driver och förvaltar.
-    </p>
+    <p class="statement">Valunds utvecklar och äger sina produkter. Här presenterar vi de digitala produkter vi driver och förvaltar.</p>
    </section>
    <article aria-labelledby="servicebok-title" class="product-case page-grid">
     <p class="label page-section__label">
-     Produkt · Fordon
+     Innehav 01 · Fordon
     </p>
     <h2 id="servicebok-title">
      Valunds ServiceBok
@@ -103,7 +100,7 @@
    </article>
    <article aria-labelledby="skogskvitto-title" class="product-case page-grid" data-variant="mirror">
     <p class="label page-section__label">
-     Produkt · Skogsbruk
+     Innehav 02 · Skogsbruk
     </p>
     <h2 id="skogskvitto-title">
      SkogsKvitto
@@ -145,51 +142,42 @@
      </a>
     </p>
    </article>
-  </main>
+  <section aria-labelledby="next-title" class="page-grid">
+<div class="page-next">
+<p class="label page-section__label" id="next-title">Vidare</p>
+<a class="text-action" data-variant="primary" href="/bolaget/">Om bolaget</a>
+<a class="text-action" href="/kontakt/">Kontakta oss</a>
+</div>
+</section>
+</main>
   <footer class="site-footer page-grid">
-   <div class="site-footer__inner">
-    <div class="site-footer__identity">
-     <p class="site-footer__name">
-      Valunds Digitala Tjänster
-     </p>
-     <p class="meta">
-      © 2026 Valunds Digitala Tjänster
-     </p>
-    </div>
-    <ul class="site-footer__links">
-     <li>
-      <a class="site-footer__link" href="/portfolj/">
-       Portfölj
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/bolaget/">
-       Bolaget
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/engineering/">
-       Engineering
-      </a>
-     </li>
-     <li>
-      <a class="site-footer__link" href="/kontakt/">
-       Kontakt
-      </a>
-     </li>
-     <li class="site-footer__legal">
-      <a class="site-footer__link" href="/kakor/">
-       Kakor
-      </a>
-     </li>
-     <li class="site-footer__legal">
-      <a class="site-footer__link" href="/integritet/">
-       Integritet
-      </a>
-     </li>
-    </ul>
-   </div>
-  </footer>
+<div class="site-footer__inner">
+<div class="site-footer__identity">
+<a aria-label="Valunds startsida" class="site-footer__brand" href="/"><img alt="Valunds" decoding="async" height="50" src="/assets/brand/valunds-wordmark.svg" width="207"></a>
+<p class="site-footer__descriptor">Svenska digitala produkter, byggda för långsiktigt ägande.</p>
+<section aria-labelledby="footer-contact-title" class="site-footer__contact">
+<h2 class="label site-footer__heading" id="footer-contact-title">Kontakt</h2>
+<p class="site-footer__mail"><a class="text-action" data-variant="primary" href="mailto:kontakt@valunds.se">kontakt@valunds.se</a></p>
+</section>
+</div>
+<section aria-labelledby="footer-explore-title" class="site-footer__explore">
+<h2 class="label site-footer__heading" id="footer-explore-title">Utforska</h2>
+<ul class="site-footer__links">
+<li><a class="site-footer__link" href="/portfolj/">Portfölj</a></li>
+<li><a class="site-footer__link" href="/bolaget/">Bolaget</a></li>
+<li><a class="site-footer__link" href="/engineering/">Teknik</a></li>
+<li><a class="site-footer__link" href="/kontakt/">Kontakt</a></li>
+</ul>
+</section>
+</div>
+<div class="site-footer__legal-bar">
+<p>© 2026 Valunds Digitala Tjänster</p>
+<ul class="site-footer__legal-links">
+<li><a class="site-footer__link" href="/kakor/">Kakor</a></li>
+<li><a class="site-footer__link" href="/integritet/">Integritet</a></li>
+</ul>
+</div>
+</footer>
   <div data-consent="">
    <section aria-labelledby="consent-title" class="consent-banner" hidden>
     <div class="consent-banner__scroll">
@@ -243,51 +231,30 @@
     </span>
    </button>
    <section aria-labelledby="cookie-settings-title" class="consent-settings" id="cookie-settings" popover>
-    <header class="consent-settings__header">
-     <div>
-      <p class="label">
-       Kakor
-      </p>
-      <h2 id="cookie-settings-title">
-       Om kakor på Valunds
-      </h2>
-     </div>
-     <button class="consent-plain text-action" popovertarget="cookie-settings" popovertargetaction="hide" type="button">
-      Stäng
-     </button>
-    </header>
-    <p class="consent-copy">
-     Webbplatsens egen kod använder för närvarande inga analys-,
-          marknadsförings- eller profileringskakor. Nödvändig teknik kan
-          användas av drift- och säkerhetsleverantören för att leverera och
-          skydda webbplatsen.
-    </p>
-    <p class="consent-copy" data-consent-status="">
-    </p>
-    <div class="consent-settings__category">
-     <div>
-      <h3>
-       Nödvändiga
-      </h3>
-      <span class="label">
-       Alltid aktiva
-      </span>
-      <p class="consent-copy">
-       Teknik som krävs för att leverera och skydda webbplatsen.
-      </p>
-     </div>
-    </div>
-    <ul class="page-grid-reset" data-consent-purposes="">
-    </ul>
-    <footer class="consent-settings__footer">
-     <button class="consent-action" data-consent-action="save" type="button">
-      Spara
-     </button>
-     <button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">
-      Återkalla samtycke
-     </button>
-    </footer>
-   </section>
+<header class="consent-settings__header">
+<div>
+<p class="label">Kakor</p>
+<h2 id="cookie-settings-title">Om kakor på Valunds</h2>
+</div>
+<button class="consent-plain text-action consent-settings__close" popovertarget="cookie-settings" popovertargetaction="hide" type="button">Stäng</button>
+</header>
+<p class="consent-copy">Webbplatsens egen kod använder för närvarande inga analys-, marknadsförings- eller profileringskakor. Nödvändig teknik kan användas av drift- och säkerhetsleverantören för att leverera och skydda webbplatsen.</p>
+<p class="consent-copy consent-settings__status" data-consent-status=""></p>
+<div class="consent-settings__category">
+<div>
+<h3>Nödvändiga</h3>
+<span class="label">Alltid aktiva</span>
+<p class="consent-copy">Teknik som krävs för att leverera och skydda webbplatsen.</p>
+</div>
+</div>
+<ul class="page-grid-reset" data-consent-purposes=""></ul>
+<footer class="consent-settings__footer">
+<a class="text-action" href="/kakor/">Läs om kakor</a>
+<button class="consent-primary" popovertarget="cookie-settings" popovertargetaction="hide" type="button">Klar</button>
+<button class="consent-action" data-consent-action="save" type="button">Spara</button>
+<button class="consent-plain text-action" data-consent-action="withdraw" hidden type="button">Återkalla samtycke</button>
+</footer>
+</section>
   </div>
   <script src="/assets/js/consent.js" type="module">
   </script>

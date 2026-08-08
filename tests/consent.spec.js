@@ -43,9 +43,7 @@ test.describe("necessary-only (produktionsläge)", () => {
     expect(storage.session).toBe(0);
   });
 
-  test("launchern finns nere till vänster och öppnar panelen", async ({
-    page,
-  }) => {
+  test("launchern finns till vänster och öppnar panelen", async ({ page }) => {
     await page.goto("/");
     const launcher = page.locator(".cookie-launcher");
     await expect(launcher).toBeVisible();
@@ -71,10 +69,10 @@ test.describe("necessary-only (produktionsläge)", () => {
     await expect(page.locator("[data-consent][data-collapsed]")).toHaveCount(1);
     await expect
       .poll(async () => Math.round((await launcher.boundingBox()).width))
-      .toBe(68);
+      .toBe(40);
     await expect
       .poll(async () => Math.round((await launcher.boundingBox()).height))
-      .toBe(68);
+      .toBe(52);
     await page.evaluate(() => window.scrollTo(0, 300));
     await expect(page.locator("[data-consent][data-collapsed]")).toHaveCount(0);
   });
@@ -149,7 +147,7 @@ test.describe("consent-required (fixture)", () => {
     await expect(launcher).toBeVisible();
     await expect
       .poll(async () => Math.round((await launcher.boundingBox()).width))
-      .toBeGreaterThan(150);
+      .toBe(40);
     await page.mouse.wheel(0, 200);
     await expect(page.locator("[data-consent][data-collapsed]")).toHaveCount(1);
   });

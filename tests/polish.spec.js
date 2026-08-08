@@ -169,51 +169,294 @@ test.describe("M2-03 visual polish", () => {
     await expect(page.locator("h1")).toContainText("Tack");
   });
 
-  test("the company structure is an editorial two-column list", async ({
+  test("bolaget reads as editorial chapters with a working principle ledger", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/bolaget/");
 
-    const groups = page.locator(".company-structure__group");
-    await expect(groups).toHaveCount(2);
-    await expect(groups.nth(0)).toContainText("Moderbolag");
-    await expect(groups.nth(1)).toContainText("Portfölj");
-    await expect(groups.nth(1)).toContainText("Valunds ServiceBok");
-    await expect(groups.nth(1)).toContainText("SkogsKvitto");
-
-    const tops = await page.evaluate(() =>
-      [...document.querySelectorAll(".company-structure__group")].map(
-        (element) => Math.round(element.getBoundingClientRect().top),
-      ),
+    const chapters = page.locator(".section-split");
+    await expect(chapters).toHaveCount(3);
+    await expect(chapters.nth(0)).toContainText("Moderbolag");
+    await expect(chapters.nth(0)).toContainText(
+      "Vi bygger för att driva vidare.",
     );
-    expect(tops[0]).toBe(tops[1]);
+    await expect(chapters.nth(0)).toContainText(
+      "Utvecklar · Äger · Driver · Förvaltar",
+    );
+
+    const holdings = page.locator(".holding-list > li");
+    await expect(holdings).toHaveCount(3);
+    await expect(holdings.nth(0)).toContainText("Valunds Digitala Tjänster");
+    await expect(holdings.nth(0)).toContainText("Moderbolag");
+    await expect(holdings.nth(1)).toContainText(
+      "Digital servicehistorik för fordon",
+    );
+
+    const geometry = await page.evaluate(() =>
+      [...document.querySelectorAll(".section-split")].map((chapter) => {
+        const head = chapter
+          .querySelector(".section-split__head")
+          .getBoundingClientRect();
+        const body = chapter
+          .querySelector(".section-split__body")
+          .getBoundingClientRect();
+        return {
+          topDelta: Math.abs(Math.round(head.top - body.top)),
+          headLeads: head.left < body.left,
+        };
+      }),
+    );
+    for (const [index, chapter] of geometry.entries()) {
+      expect(
+        chapter.topDelta,
+        `kapitel ${index} topplinje`,
+      ).toBeLessThanOrEqual(1);
+      expect(chapter.headLeads, `kapitel ${index} rubrikspalt`).toBe(true);
+    }
+
+    const culm = await page
+      .locator('[aria-labelledby="structure-title"]')
+      .evaluate((element) => getComputedStyle(element).borderBlockStartStyle);
+    expect(culm).toBe("double");
   });
 
-  test("the cookie launcher clears the content column on wide screens", async ({
+  test("principle ledgers never stack words in the number track", async ({
     page,
   }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/kontakt/");
-    await page.mouse.wheel(0, 800);
-    await expect(page.locator("[data-consent][data-collapsed]")).toHaveCount(1);
+    for (const route of ["/", "/bolaget/"]) {
+      for (const width of [1024, 1280, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto(route);
+        const rows = await page.evaluate(() =>
+          [...document.querySelectorAll(".principle-ledger > li")].map(
+            (item) => {
+              const box = item.getBoundingClientRect();
+              const title = item.querySelector("b").getBoundingClientRect();
+              const paragraph = item.querySelector("p");
+              const copy = paragraph.getBoundingClientRect();
+              const range = document.createRange();
+              range.selectNodeContents(paragraph);
+              const lineWidths = [...range.getClientRects()]
+                .filter((rect) => rect.width > 0 && rect.height > 0)
+                .map((rect) => Math.round(rect.width));
+              return {
+                height: Math.round(box.height),
+                copyLeft: Math.round(copy.left - box.left),
+                sameLine: copy.top < title.bottom,
+                minLine:
+                  lineWidths.length > 1
+                    ? Math.min(...lineWidths.slice(0, -1))
+                    : Infinity,
+                wide: item.parentElement.classList.contains(
+                  "principle-ledger--wide",
+                ),
+              };
+            },
+          ),
+        );
+        expect(rows.length).toBeGreaterThanOrEqual(4);
+        for (const [index, row] of rows.entries()) {
+          expect(
+            row.height,
+            `${route} ${width} rad ${index} höjd`,
+          ).toBeLessThanOrEqual(row.wide ? 120 : 176);
+          expect(
+            row.minLine,
+            `${route} ${width} rad ${index} radbredd`,
+          ).toBeGreaterThanOrEqual(90);
+          expect(
+            row.copyLeft,
+            `${route} ${width} rad ${index} spår`,
+          ).toBeGreaterThanOrEqual(40);
+          if (row.wide) {
+            expect(
+              row.sameLine,
+              `${route} ${width} rad ${index} baslinje`,
+            ).toBe(true);
+          }
+        }
+      }
+    }
+  });
 
-    const overlap = await page.evaluate(() => {
-      const launcher = document
-        .querySelector(".cookie-launcher")
-        .getBoundingClientRect();
-      return [...document.querySelectorAll("main p, main h1, main h2")].some(
-        (element) => {
-          const box = element.getBoundingClientRect();
-          return (
-            box.left < launcher.right &&
-            box.right > launcher.left &&
-            box.top < launcher.bottom &&
-            box.bottom > launcher.top
-          );
-        },
+  test("the engineering manifest is measurably readable", async ({ page }) => {
+    await page.goto("/engineering/");
+    const ratio = await page.evaluate(() => {
+      const quote = document.querySelector(
+        ".engineering-statement .statement--quote",
+      );
+      const surface = quote.closest(".engineering-statement");
+      const luminance = (value) => {
+        const parts = value
+          .match(/\d+/g)
+          .map(Number)
+          .map((channel) => {
+            const c = channel / 255;
+            return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+          });
+        return 0.2126 * parts[0] + 0.7152 * parts[1] + 0.0722 * parts[2];
+      };
+      const text = luminance(getComputedStyle(quote).color);
+      const background = luminance(getComputedStyle(surface).backgroundColor);
+      return (
+        (Math.max(text, background) + 0.05) /
+        (Math.min(text, background) + 0.05)
       );
     });
-    expect(overlap, "launchern overlappar brodtext").toBe(false);
+    expect(ratio).toBeGreaterThanOrEqual(4.5);
+  });
+
+  test("the bottom nav reveals a way home after scrolling", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/bolaget/");
+    await page.evaluate(() => document.fonts.ready);
+
+    const home = page.locator(".site-navigation__home a");
+    await expect(home).toHaveAttribute("href", "/");
+
+    const atTop = await home.evaluate((link) => {
+      const style = getComputedStyle(link.parentElement);
+      return {
+        opacity: Number(style.opacity),
+        animated: style.animationName !== "none",
+      };
+    });
+    if (atTop.animated) {
+      expect(atTop.opacity).toBeLessThan(0.05);
+    }
+
+    await page.evaluate(() => window.scrollTo(0, 600));
+    await expect
+      .poll(async () =>
+        home.evaluate((link) =>
+          Number(getComputedStyle(link.parentElement).opacity),
+        ),
+      )
+      .toBe(1);
+
+    const box = await home.boundingBox();
+    expect(box.width).toBeGreaterThanOrEqual(44);
+    expect(box.height).toBeGreaterThanOrEqual(44);
+
+    await home.click();
+    await expect(page).toHaveURL(/\/$/);
+  });
+
+  test("portfolio product visuals carry equal weight", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/portfolj/");
+    const areas = await page.evaluate(() =>
+      [...document.querySelectorAll(".product-case__visual img")].map(
+        (image) => {
+          const box = image.getBoundingClientRect();
+          return box.width * box.height;
+        },
+      ),
+    );
+    expect(areas).toHaveLength(2);
+    const spread = Math.abs(areas[0] - areas[1]) / Math.max(...areas);
+    expect(spread).toBeLessThanOrEqual(0.15);
+  });
+
+  test("the cookie launcher stays clear of content, forms and the panel", async ({
+    page,
+  }) => {
+    const routes = ["/kontakt/", "/portfolj/"];
+    const widths = [640, 1024, 1280, 1440, 1920];
+    const desktopSelector = [
+      "main p",
+      "main h1",
+      "main h2",
+      "main h3",
+      "main a",
+      "main label",
+      'main input:not([type="hidden"])',
+      "main select",
+      "main textarea",
+      "main button",
+      "main img",
+      "main figure",
+      "footer p",
+      "footer a",
+      "footer .label",
+    ].join(", ");
+    const compactSelector =
+      "footer p, footer a, footer .label, .site-navigation";
+
+    for (const route of routes) {
+      for (const width of widths) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto(route);
+        await page.evaluate(() => document.fonts.ready);
+
+        for (const position of ["top", "middle", "bottom"]) {
+          await page.evaluate((where) => {
+            const max =
+              document.documentElement.scrollHeight - window.innerHeight;
+            const target =
+              where === "top" ? 0 : where === "middle" ? max / 2 : max;
+            window.scrollTo(0, target);
+          }, position);
+          await page.waitForTimeout(120);
+
+          const hits = await page.evaluate(
+            (selector) => {
+              const zone = document
+                .querySelector(".cookie-launcher")
+                .getBoundingClientRect();
+              const found = [];
+              for (const element of document.querySelectorAll(selector)) {
+                const rects = [...element.getClientRects()].filter(
+                  (rect) => rect.width > 0 && rect.height > 0,
+                );
+                const overlap = rects.some(
+                  (rect) =>
+                    rect.left < zone.right &&
+                    rect.right > zone.left &&
+                    rect.top < zone.bottom &&
+                    rect.bottom > zone.top,
+                );
+                if (overlap) {
+                  found.push(`${element.tagName}.${element.className}`);
+                }
+              }
+              return found;
+            },
+            width >= 1024 ? desktopSelector : compactSelector,
+          );
+
+          expect(hits, `${route} ${width}px ${position}`).toEqual([]);
+        }
+
+        if (width >= 1024) {
+          await expect(
+            page.locator("[data-consent][data-collapsed]"),
+          ).toHaveCount(1);
+        }
+
+        await page.locator(".cookie-launcher").click();
+        await expect(page.locator(".consent-settings")).toBeVisible();
+        const separated = await page.evaluate(() => {
+          const zone = document
+            .querySelector(".cookie-launcher")
+            .getBoundingClientRect();
+          const panel = document
+            .querySelector(".consent-settings")
+            .getBoundingClientRect();
+          return (
+            panel.left >= zone.right ||
+            panel.right <= zone.left ||
+            panel.top >= zone.bottom ||
+            panel.bottom <= zone.top
+          );
+        });
+        expect(separated, `${route} ${width}px panelseparation`).toBe(true);
+        await page.locator(".consent-settings__close").click();
+        await expect(page.locator(".consent-settings")).toBeHidden();
+      }
+    }
   });
 });

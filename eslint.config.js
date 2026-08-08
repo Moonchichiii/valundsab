@@ -50,6 +50,7 @@ export default [
     languageOptions: {
       globals: {
         Request: "readonly",
+        AbortSignal: "readonly",
         Response: "readonly",
         URL: "readonly",
         URLSearchParams: "readonly",
