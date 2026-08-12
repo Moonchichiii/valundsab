@@ -8,8 +8,7 @@ body {
 }
 
 h2,
-h3,
-h4 {
+h3 {
   line-height: var(--leading-section);
   text-wrap: balance;
 }

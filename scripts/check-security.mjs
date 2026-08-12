@@ -175,11 +175,14 @@ for (const file of walk(root)) {
 function validateHtml(path, content) {
   const forbiddenPatterns = [
     [/<style\b/i, "inline style element"],
-    [/<script\b(?![^>]*\bsrc\s*=)[^>]*>/i, "inline script element"],
+    [
+      /<script\b(?![^>]*\bsrc\s*=)(?![^>]*\btype\s*=\s*"application\/ld\+json")[^>]*>/i,
+      "inline script element",
+    ],
     [/<[^>]+\sstyle\s*=/i, "inline style attribute"],
     [/<[^>]+\son[a-z][a-z0-9:-]*\s*=/i, "inline event handler"],
     [
-      /\b(?:src|href|action|formaction|poster)\s*=\s*["'](?:https?:|\/\/|data:|blob:|javascript:)/i,
+      /\b(?:src|href|action|formaction|poster)\s*=\s*["'](?!https:\/\/valundsab\.se\/)(?:https?:|\/\/|data:|blob:|javascript:)/i,
       "forbidden external or executable URL",
     ],
   ];

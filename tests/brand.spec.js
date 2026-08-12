@@ -21,7 +21,10 @@ test.describe("production brand system", () => {
       const wordmark = brand.locator(".site-brand__wordmark");
 
       await expect(brand).toHaveAttribute("href", "/");
-      await expect(brand).toHaveAttribute("aria-label", "Valunds startsida");
+      await expect(brand).toHaveAttribute(
+        "aria-label",
+        "Valunds Digitala Tjänster – startsida",
+      );
       await expect(wordmark).toHaveCount(1);
       await expect(wordmark).toHaveAttribute(
         "src",

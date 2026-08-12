@@ -26,8 +26,14 @@
 .site-brand {
   display: inline-flex;
   align-items: center;
-  flex: 0 0 auto;
+  gap: 0.6rem;
   text-decoration: none;
+}
+
+@media (width < 64rem) {
+  .site-brand__extension {
+    display: none;
+  }
 }
 
 .site-brand__wordmark {

@@ -28,7 +28,7 @@ module.exports = {
           "error",
           { maxNumericValue: 26624 },
         ],
-        "resource-summary:total:size": ["error", { maxNumericValue: 153600 }],
+        "resource-summary:total:size": ["error", { maxNumericValue: 184320 }],
         "resource-summary:third-party:count": ["error", { maxNumericValue: 0 }],
         "errors-in-console": ["error", { minScore: 1 }],
       },

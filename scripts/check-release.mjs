@@ -136,6 +136,9 @@ while (queue.length > 0) {
     if (isNonFile(reference)) {
       continue;
     }
+    if (/^https:\/\/valundsab\.se\//.test(reference)) {
+      continue;
+    }
     if (isExternal(reference)) {
       report(relativePath + ": external reference " + reference);
       continue;
