@@ -10,6 +10,7 @@ const STANDALONE = ["consent-banner.css"];
 
 rmSync(OUTPUT, { recursive: true, force: true });
 cpSync(SOURCE, OUTPUT, { recursive: true });
+rmSync(join(OUTPUT, "assets/products-src"), { recursive: true, force: true });
 
 for (const file of readdirSync(join(OUTPUT, CSS_DIRECTORY))) {
   rmSync(join(OUTPUT, CSS_DIRECTORY, file));
